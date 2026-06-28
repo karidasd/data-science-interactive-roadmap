@@ -26,6 +26,8 @@
     --clr-spec: #00b4d8;
     --clr-spec-glow: rgba(0, 180, 216, 0.15);
 
+    --clr-locked: #6c757d;
+
     --transition-speed: 0.3s;
 }
 
@@ -59,16 +61,23 @@ h1, h2, h3, h4 {
 
 /* App Header */
 .app-header {
-    text-align: center;
     margin-bottom: 3.5rem;
     animation: fadeIn 0.8s ease-out;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .logo {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 0.5rem;
 }
 
 .logo-icon {
@@ -89,8 +98,31 @@ h1, h2, h3, h4 {
 .subtitle {
     font-size: 1.05rem;
     color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Reset Button */
+.reset-btn {
+    background: rgba(230, 57, 70, 0.1);
+    border: 1px solid rgba(230, 57, 70, 0.3);
+    color: var(--clr-advanced);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-speed);
+}
+
+.reset-btn:hover {
+    background: var(--clr-advanced);
+    color: var(--bg-main);
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.4);
+    border-color: transparent;
 }
 
 /* Tiers Flow Layout */
@@ -185,10 +217,6 @@ h1, h2, h3, h4 {
     transition: all var(--transition-speed) ease;
 }
 
-.roadmap-node:hover {
-    transform: translateY(-3px);
-}
-
 .roadmap-node h3 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
@@ -212,57 +240,66 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
-/* Done Node */
-.status-ready {
-    border-color: var(--clr-ready);
-    box-shadow: 0 0 12px var(--clr-ready-glow);
-}
-.status-ready:hover {
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
-}
-.status-ready .status-badge {
-    background-color: rgba(0, 230, 118, 0.15);
-    color: var(--clr-ready);
+/* Locked Node State */
+.node-locked {
+    opacity: 0.4;
+    filter: grayscale(0.8);
+    cursor: not-allowed !important;
+    border-color: rgba(255,255,255,0.03);
 }
 
-/* Next Node */
-.status-next {
-    border-color: var(--clr-next);
-    box-shadow: 0 0 12px var(--clr-next-glow);
+.node-locked:hover {
+    background-color: rgba(230, 57, 70, 0.05);
+    border-color: rgba(230, 57, 70, 0.2);
 }
-.status-next:hover {
-    box-shadow: 0 0 20px rgba(255, 145, 0, 0.3);
+
+.node-locked .status-badge {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
 }
-.status-next .status-badge {
+
+/* Active Unlocked Node State */
+.node-active {
+    opacity: 1;
+    filter: none;
+    cursor: pointer;
+    animation: borderPulse 2s infinite alternate;
+}
+
+/* Tier Specific Border Pulsing */
+.status-ready.node-active { border-color: var(--clr-ready); }
+.status-next.node-active { border-color: var(--clr-next); }
+.status-core.node-active { border-color: var(--clr-core); }
+.status-advanced.node-active { border-color: var(--clr-advanced); }
+.status-spec.node-active { border-color: var(--clr-spec); }
+
+.node-active:hover {
+    transform: translateY(-3px);
+}
+
+.node-active .status-badge {
     background-color: rgba(255, 145, 0, 0.15);
     color: var(--clr-next);
 }
 
-/* Core Node */
-.status-core {
-    border-color: var(--clr-core);
-}
-.status-core:hover {
-    border-color: #b5179e;
-    box-shadow: 0 0 15px rgba(157, 78, 221, 0.25);
-}
-
-/* Advanced Node */
-.status-advanced {
-    border-color: var(--clr-advanced);
-}
-.status-advanced:hover {
-    border-color: #f72585;
-    box-shadow: 0 0 15px rgba(230, 57, 70, 0.25);
+/* Completed Node State */
+.node-completed {
+    opacity: 1;
+    filter: none;
+    cursor: pointer;
+    border-color: var(--clr-ready) !important;
+    box-shadow: 0 0 15px var(--clr-ready-glow) !important;
+    background-color: rgba(0, 230, 118, 0.04);
 }
 
-/* Specialization Node */
-.status-spec {
-    border-color: var(--clr-spec);
+.node-completed:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 230, 118, 0.25) !important;
 }
-.status-spec:hover {
-    border-color: #4cc9f0;
-    box-shadow: 0 0 15px rgba(0, 180, 216, 0.25);
+
+.node-completed .status-badge {
+    background-color: rgba(0, 230, 118, 0.15);
+    color: var(--clr-ready);
 }
 
 /* Connector Rows (SVG Line Connections) */
@@ -285,7 +322,7 @@ h1, h2, h3, h4 {
 
 .line-path {
     fill: none;
-    stroke: rgba(255, 255, 255, 0.15);
+    stroke: rgba(255, 255, 255, 0.12);
     stroke-width: 2.5;
     stroke-dasharray: 6 4;
 }
@@ -319,9 +356,7 @@ h1, h2, h3, h4 {
 
 .legend-color.ready { background-color: var(--clr-ready); }
 .legend-color.next { background-color: var(--clr-next); }
-.legend-color.core { background-color: var(--clr-core); }
-.legend-color.advanced { background-color: var(--clr-advanced); }
-.legend-color.spec { background-color: var(--clr-spec); }
+.legend-color.locked-legend { background-color: #3b3749; border: 1px solid var(--border-card); }
 
 /* Slide-out Detail Drawer */
 .detail-drawer {
@@ -587,8 +622,72 @@ h1, h2, h3, h4 {
     pointer-events: auto;
 }
 
+/* Floating Toast Notifications */
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 110;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 320px;
+}
+
+.toast {
+    background-color: rgba(16, 12, 32, 0.9);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: all 0.3s;
+}
+
+.toast.toast-warning {
+    border-color: rgba(230, 57, 70, 0.5);
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.15);
+}
+
+.toast.toast-success {
+    border-color: rgba(0, 230, 118, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 230, 118, 0.15);
+}
+
+.toast i {
+    font-size: 1.1rem;
+}
+
+.toast-warning i { color: var(--clr-advanced); }
+.toast-success i { color: var(--clr-ready); }
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes toastSlideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes borderPulse {
+    from {
+        box-shadow: 0 0 4px rgba(255, 255, 255, 0.05);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Data Science Roadmap</title>
+    <title>Interactive Data Science & ML Roadmap</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,16 @@
 <body class="dark-theme">
     <div class="container">
         <header class="app-header">
-            <div class="logo">
-                <i class="fa-solid fa-graduation-cap logo-icon"></i>
-                <h1>Data Science & ML Roadmap</h1>
+            <div class="header-main">
+                <div class="logo">
+                    <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                    <h1>Data Science & ML Roadmap</h1>
+                </div>
+                <button class="reset-btn" id="reset-progress-btn">
+                    <i class="fa-solid fa-rotate-left"></i> Reset Progress
+                </button>
             </div>
-            <p class="subtitle">Διαδραστικός εκπαιδευτικός χάρτης. Κάνε κλικ σε οποιοδήποτε module για να ξεκινήσεις τη μάθηση και τα κουίζ!</p>
+            <p class="subtitle">An interactive curriculum roadmap. Click on unlocked modules to study the theory, inspect Python code, and complete tests to unlock the next levels!</p>
         </header>
 
         <!-- The Interactive Flowchart Tree Grid -->
@@ -29,20 +34,20 @@
             <div class="tier-row">
                 <div class="tier-label">Foundation</div>
                 <div class="tier-nodes grid-3">
-                    <div class="roadmap-node status-ready" data-module="preprocessing">
-                        <span class="status-badge"><i class="fa-solid fa-check"></i> Έτοιμο</span>
+                    <div class="roadmap-node" id="node-preprocessing" data-module="preprocessing">
+                        <div class="status-badge-container"></div>
                         <h3>Data Preprocessing</h3>
                         <p>& Data Cleaning</p>
                     </div>
-                    <div class="roadmap-node status-next" data-module="eda">
-                        <span class="status-badge"><i class="fa-solid fa-arrow-right"></i> Επόμενο</span>
+                    <div class="roadmap-node" id="node-eda" data-module="eda">
+                        <div class="status-badge-container"></div>
                         <h3>EDA</h3>
                         <p>Exploratory Data Analysis</p>
                     </div>
-                    <div class="roadmap-node status-pending" data-module="statistics">
-                        <span class="status-badge">Εκκρεμεί</span>
-                        <h3>Στατιστική</h3>
-                        <p>για Data Science</p>
+                    <div class="roadmap-node" id="node-statistics" data-module="statistics">
+                        <div class="status-badge-container"></div>
+                        <h3>Statistics</h3>
+                        <p>for Data Science</p>
                     </div>
                 </div>
             </div>
@@ -60,15 +65,18 @@
             <div class="tier-row">
                 <div class="tier-label">Core</div>
                 <div class="tier-nodes grid-3">
-                    <div class="roadmap-node status-core" data-module="visualization">
+                    <div class="roadmap-node" id="node-visualization" data-module="visualization">
+                        <div class="status-badge-container"></div>
                         <h3>Data Visualization</h3>
                         <p>matplotlib & seaborn</p>
                     </div>
-                    <div class="roadmap-node status-core" data-module="feature-engineering">
+                    <div class="roadmap-node" id="node-feature-engineering" data-module="feature-engineering">
+                        <div class="status-badge-container"></div>
                         <h3>Feature Engineering</h3>
                         <p>encoding & scaling</p>
                     </div>
-                    <div class="roadmap-node status-core" data-module="sql-pandas">
+                    <div class="roadmap-node" id="node-sql-pandas" data-module="sql-pandas">
+                        <div class="status-badge-container"></div>
                         <h3>SQL & Pandas</h3>
                         <p>groupby, merges, CTEs</p>
                     </div>
@@ -89,13 +97,13 @@
             <div class="tier-row project-row">
                 <div class="tier-label">Core Projects</div>
                 <div class="tier-nodes grid-2">
-                    <div class="roadmap-node status-ready" data-module="credit-risk">
-                        <span class="status-badge"><i class="fa-solid fa-check"></i> Έτοιμο</span>
+                    <div class="roadmap-node" id="node-credit-risk" data-module="credit-risk">
+                        <div class="status-badge-container"></div>
                         <h3>Credit Risk ML</h3>
                         <p>LR • RF • XGBoost</p>
                     </div>
-                    <div class="roadmap-node status-ready" data-module="email-targeting">
-                        <span class="status-badge"><i class="fa-solid fa-check"></i> Έτοιμο</span>
+                    <div class="roadmap-node" id="node-email-targeting" data-module="email-targeting">
+                        <div class="status-badge-container"></div>
                         <h3>Email Targeting</h3>
                         <p>RFM • K-Means</p>
                     </div>
@@ -116,15 +124,18 @@
             <div class="tier-row">
                 <div class="tier-label">Advanced</div>
                 <div class="tier-nodes grid-3">
-                    <div class="roadmap-node status-advanced" data-module="time-series">
+                    <div class="roadmap-node" id="node-time-series" data-module="time-series">
+                        <div class="status-badge-container"></div>
                         <h3>Time Series</h3>
                         <p>ARIMA • Prophet</p>
                     </div>
-                    <div class="roadmap-node status-advanced" data-module="nlp">
+                    <div class="roadmap-node" id="node-nlp" data-module="nlp">
+                        <div class="status-badge-container"></div>
                         <h3>NLP</h3>
                         <p>Text classification • BERT</p>
                     </div>
-                    <div class="roadmap-node status-advanced" data-module="deep-learning">
+                    <div class="roadmap-node" id="node-deep-learning" data-module="deep-learning">
+                        <div class="status-badge-container"></div>
                         <h3>Deep Learning</h3>
                         <p>Neural nets • CNNs • RNNs</p>
                     </div>
@@ -145,11 +156,13 @@
             <div class="tier-row project-row">
                 <div class="tier-label">ML Ops & Eval</div>
                 <div class="tier-nodes grid-2">
-                    <div class="roadmap-node status-advanced" data-module="model-deployment">
+                    <div class="roadmap-node" id="node-model-deployment" data-module="model-deployment">
+                        <div class="status-badge-container"></div>
                         <h3>Model Deployment</h3>
                         <p>FastAPI • Streamlit • Docker</p>
                     </div>
-                    <div class="roadmap-node status-advanced" data-module="model-evaluation">
+                    <div class="roadmap-node" id="node-model-evaluation" data-module="model-evaluation">
+                        <div class="status-badge-container"></div>
                         <h3>Model Evaluation</h3>
                         <p>CV • SHAP • Optuna</p>
                     </div>
@@ -170,15 +183,18 @@
             <div class="tier-row">
                 <div class="tier-label">Specialization</div>
                 <div class="tier-nodes grid-3">
-                    <div class="roadmap-node status-spec" data-module="bi">
+                    <div class="roadmap-node" id="node-bi" data-module="bi">
+                        <div class="status-badge-container"></div>
                         <h3>Business Intelligence</h3>
                         <p>KPIs • Dashboards • A/B tests</p>
                     </div>
-                    <div class="roadmap-node status-spec" data-module="recommender">
+                    <div class="roadmap-node" id="node-recommender" data-module="recommender">
+                        <div class="status-badge-container"></div>
                         <h3>Recommender</h3>
                         <p>Collaborative Filtering</p>
                     </div>
-                    <div class="roadmap-node status-spec" data-module="anomaly">
+                    <div class="roadmap-node" id="node-anomaly" data-module="anomaly">
+                        <div class="status-badge-container"></div>
                         <h3>Anomaly Detection</h3>
                         <p>Fraud detection • Isolation Forest</p>
                     </div>
@@ -189,11 +205,9 @@
 
         <!-- Legend / Footer -->
         <footer class="app-legend">
-            <div class="legend-item"><span class="legend-color ready"></span><span>Έτοιμο</span></div>
-            <div class="legend-item"><span class="legend-color next"></span><span>Επόμενο</span></div>
-            <div class="legend-item"><span class="legend-color core"></span><span>Core Analytics</span></div>
-            <div class="legend-item"><span class="legend-color advanced"></span><span>Advanced ML</span></div>
-            <div class="legend-item"><span class="legend-color spec"></span><span>Specialization</span></div>
+            <div class="legend-item"><span class="legend-color ready"></span><span>Completed</span></div>
+            <div class="legend-item"><span class="legend-color next"></span><span>Active (Current)</span></div>
+            <div class="legend-item"><span class="legend-color locked-legend"></span><span>Locked</span></div>
         </footer>
     </div>
 
@@ -206,32 +220,32 @@
         <div class="drawer-content">
             <!-- Navigation tabs inside drawer -->
             <div class="drawer-tabs">
-                <button class="drawer-tab-btn active" data-subtab="theory">Θεωρία</button>
-                <button class="drawer-tab-btn" data-subtab="code">Κώδικας</button>
-                <button class="drawer-tab-btn" data-subtab="quiz">Κουίζ</button>
+                <button class="drawer-tab-btn active" data-subtab="theory">Theory</button>
+                <button class="drawer-tab-btn" data-subtab="code">Python Code</button>
+                <button class="drawer-tab-btn" data-subtab="quiz">Practice Quiz</button>
             </div>
 
             <!-- Subtab Content: Theory -->
             <div class="drawer-tab-panel active" id="subtab-theory">
                 <div class="theory-section">
-                    <h3>Τι είναι και πού χρησιμεύει;</h3>
-                    <p id="theory-desc">Περιγραφή θεωρίας...</p>
+                    <h3>What is it and why does it matter?</h3>
+                    <p id="theory-desc">Loading theory...</p>
                 </div>
                 <div class="theory-section">
-                    <h3>Σύνδεση με Data Analyst & AI</h3>
-                    <p id="analyst-ai-desc">Σύνδεση...</p>
+                    <h3>Data Analyst & AI Connection</h3>
+                    <p id="analyst-ai-desc">Loading connection...</p>
                 </div>
                 <div class="theory-section">
-                    <h3>Πρακτικό Παράδειγμα στην Αγορά</h3>
-                    <p id="real-world-example-desc">Παράδειγμα...</p>
+                    <h3>Real-World Industry Example</h3>
+                    <p id="real-world-example-desc">Loading example...</p>
                 </div>
             </div>
 
             <!-- Subtab Content: Code -->
             <div class="drawer-tab-panel" id="subtab-code">
-                <h3>Παράδειγμα Κώδικα Python</h3>
+                <h3>Python Implementation Example</h3>
                 <div class="code-box">
-                    <button class="copy-code-btn" id="copy-code-btn"><i class="fa-regular fa-copy"></i> Αντιγραφή</button>
+                    <button class="copy-code-btn" id="copy-code-btn"><i class="fa-regular fa-copy"></i> Copy Code</button>
                     <pre><code id="code-block">print('loading...')</code></pre>
                 </div>
             </div>
@@ -239,11 +253,11 @@
             <!-- Subtab Content: Quiz -->
             <div class="drawer-tab-panel" id="subtab-quiz">
                 <div class="quiz-container">
-                    <h3>Mini Test Γνώσεων</h3>
+                    <h3>Check Your Knowledge</h3>
                     <div id="quiz-question-box">
                         <!-- Questions will be injected dynamically -->
                     </div>
-                    <button class="btn btn-primary" id="submit-quiz-btn">Έλεγχος Απαντήσεων</button>
+                    <button class="btn btn-primary" id="submit-quiz-btn">Submit Answers</button>
                     <div class="quiz-feedback" id="quiz-feedback-box"></div>
                 </div>
             </div>
@@ -252,6 +266,9 @@
     
     <!-- Drawer Overlay -->
     <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Floating Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
 
     <script src="app.js"></script>
 </body>

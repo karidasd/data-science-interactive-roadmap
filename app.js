@@ -1,10 +1,10 @@
-// Database containing details, code, and quizzes for all 16 curriculum modules
+// Database containing details, code, and quizzes for all 16 curriculum modules (English Edition)
 const modulesData = {
     "preprocessing": {
         title: "Data Preprocessing & Cleaning",
-        theory: "Η προετοιμασία δεδομένων είναι το πρώτο και πιο κρίσιμο βήμα. Περιλαμβάνει τη διαχείριση ελλιπών τιμών (nulls), την αφαίρεση διπλότυπων εγγραφών, τη διόρθωση λαθών στους τύπους δεδομένων και το φιλτράρισμα ακραίων τιμών (outliers). Χωρίς καθαρά δεδομένα, οποιοδήποτε μοντέλο AI θα παράγει λανθασμένα αποτελέσματα (Garbage In, Garbage Out).",
-        analystAi: "Ο Data Analyst χρησιμοποιεί βιβλιοθήκες όπως η Pandas για να καθαρίσει δεδομένα. Το AI (όπως ο Claude) μπορεί να αυτοματοποιήσει αυτή τη διαδικασία αναγνωρίζοντας μοτίβα ελλιπών τιμών, προτείνοντας έξυπνες μεθόδους συμπλήρωσης (imputation) και γράφοντας έτοιμο κώδικα καθαρισμού.",
-        realWorldExample: "Κατά την εγγραφή πελατών σε μια φόρμα, η πόλη μπορεί να γραφτεί ως 'Athens', 'athens', 'ΑΘΗΝΑ' ή 'Athns'. Το Data Preprocessing θα καθαρίσει και θα ομογενοποιήσει αυτές τις εγγραφές ώστε να μετρηθούν σωστά ως μία ενιαία πόλη.",
+        theory: "Data preprocessing is the first and most critical step in any data project. It involves handling missing values (nulls), removing duplicate rows, correcting data type anomalies, and filtering out outliers. Without clean data, any AI or machine learning model will produce faulty, unreliable outputs (Garbage In, Garbage Out).",
+        analystAi: "Data Analysts use libraries like Pandas to inspect and tidy up datasets. Generative AI (like Claude or GPT) supercharges this by automatically analyzing null patterns, suggesting smart imputation (filling) rules, and generating reusable data-cleaning code scripts.",
+        realWorldExample: "When users sign up on a website, they might type their city as 'Athens', 'athens', 'ATHENS', or 'Athns'. Preprocessing normalizes these entries so the system aggregates them as a single, consistent city count.",
         code: `# Data Cleaning Example with Pandas
 import pandas as pd
 import numpy as np
@@ -27,16 +27,16 @@ df = df.drop_duplicates()
 print("Cleaned DataFrame shape:", df.shape)`,
         quiz: [
             {
-                q: "Τι σημαίνει η φράση 'Garbage In, Garbage Out' στο Data Science;",
+                q: "What does the phrase 'Garbage In, Garbage Out' mean in Data Science?",
                 options: [
-                    "Αν τα δεδομένα εισόδου είναι κακής ποιότητας, τα αποτελέσματα του μοντέλου θα είναι επίσης λανθασμένα.",
-                    "Τα μοντέλα AI διαγράφουν αυτόματα τα άχρηστα δεδομένα.",
-                    "Η καθαριότητα των δεδομένων πρέπει να γίνεται μόνο στο τέλος του project."
+                    "If the input data is of poor quality, the model's outputs will also be incorrect.",
+                    "AI models automatically delete useless data upon loading.",
+                    "Data cleaning should only be performed at the very end of a project."
                 ],
                 correct: 0
             },
             {
-                q: "Ποια μέθοδος της Pandas χρησιμοποιείται για τη συμπλήρωση ελλιπών τιμών;",
+                q: "Which Pandas method is commonly used to fill missing values with a default value or median?",
                 options: [
                     "df.dropna()",
                     "df.fillna()",
@@ -48,9 +48,9 @@ print("Cleaned DataFrame shape:", df.shape)`,
     },
     "eda": {
         title: "EDA (Exploratory Data Analysis)",
-        theory: "Η διερευνητική ανάλυση δεδομένων (EDA) είναι η διαδικασία κατά την οποία ο αναλυτής 'ακούει' τα δεδομένα. Χρησιμοποιεί περιγραφική στατιστική (μέσος όρος, διάμεσος, τυπική απόκλιση) και γραφήματα για να κατανοήσει την κατανομή των τιμών, να εντοπίσει ανωμαλίες και να βρει κρυμμένες συσχετίσεις μεταξύ των μεταβλητών.",
-        analystAi: "Ο Data Analyst σχεδιάζει τη στρατηγική EDA για να απαντήσει σε επιχειρηματικά ερωτήματα. Το AI βοηθάει ερμηνεύοντας άμεσα τις στατιστικές κατανομές και προτείνοντας ποιες συσχετίσεις αξίζει να διερευνηθούν περαιτέρω.",
-        realWorldExample: "Μια αλυσίδα καφέ αναλύει τις μηνιαίες πωλήσεις της και ανακαλύπτει ότι οι πωλήσεις κρύου καφέ εκτοξεύονται τον Ιούλιο, ενώ η ζεστή σοκολάτα κορυφώνεται τον Δεκέμβριο. Αυτό τους επιτρέπει να προσαρμόσουν το στοκ τους.",
+        theory: "Exploratory Data Analysis (EDA) is the phase where analysts 'listen' to the dataset. By calculating descriptive statistics (mean, median, standard deviation) and plotting visual charts, you understand value distributions, locate anomalies, and spot linear correlations between variables.",
+        analystAi: "The Data Analyst designs the EDA strategy to address key business objectives. AI assists by instantly interpreting statistical summaries, explaining distribution skewness, and pointing out correlations that warrant deeper inspection.",
+        realWorldExample: "A coffee chain analyzes customer transaction timestamps during EDA and discovers that iced coffee sales spike in July while hot chocolate peaks in December, allowing them to optimize seasonal inventory levels.",
         code: `# Descriptive Statistics & Correlations with Pandas
 import pandas as pd
 
@@ -71,16 +71,16 @@ print("\nCorrelation Matrix:")
 print(correlations)`,
         quiz: [
             {
-                q: "Ποιο είναι το κύριο όφελος της διερευνητικής ανάλυσης δεδομένων (EDA);",
+                q: "What is the primary benefit of performing Exploratory Data Analysis (EDA)?",
                 options: [
-                    "Η αυτόματη εκπαίδευση μοντέλων Deep Learning.",
-                    "Η κατανόηση της δομής, των κατανομών και των συσχετίσεων των δεδομένων πριν τη μοντελοποίηση.",
-                    "Η αποθήκευση των δεδομένων σε SQL βάσεις."
+                    "To automatically train deep learning neural networks.",
+                    "To understand the structure, distributions, and correlations in the data prior to modeling.",
+                    "To store datasets inside SQL databases."
                 ],
                 correct: 1
             },
             {
-                q: "Ποια εντολή της Pandas επιστρέφει το μέσο όρο, την τυπική απόκλιση και τα τεταρτημόρια των αριθμητικών στηλών;",
+                q: "Which Pandas method returns count, mean, standard deviation, and quartiles of numeric columns?",
                 options: [
                     "df.info()",
                     "df.head()",
@@ -91,10 +91,10 @@ print(correlations)`,
         ]
     },
     "statistics": {
-        title: "Στατιστική για Data Science",
-        theory: "Η στατιστική παρέχει τα μαθηματικά θεμέλια για τη λήψη αποφάσεων. Περιλαμβάνει τον έλεγχο υποθέσεων (hypothesis testing), τον υπολογισμό των p-values για να δούμε αν ένα εύρημα είναι στατιστικά σημαντικό και την κατανόηση των κατανομών (π.χ. κανονική κατανομή).",
-        analystAi: "Οι Data Analysts χρησιμοποιούν στατιστικούς ελέγχους (π.χ. t-test, chi-square) για A/B testing. Το AI βοηθάει εξηγώντας περίπλοκες στατιστικές έννοιες και προτείνοντας τον κατάλληλο έλεγχο ανάλογα με τον τύπο των δεδομένων.",
-        realWorldExample: "Θέλουμε να δούμε αν η αλλαγή του κουμπιού αγοράς από Μπλε σε Πράσινο αύξησε πράγματι τις πωλήσεις ή αν ήταν απλή σύμπτωση. Με ένα t-test υπολογίζουμε το p-value για να επιβεβαιώσουμε τη στατιστική σημαντικότητα.",
+        title: "Statistics for Data Science",
+        theory: "Statistics provides the mathematical framework for making data-backed decisions. Key concepts include hypothesis testing, p-values (determining if a finding is statistically significant or random chance), and probability distributions (like the Normal Distribution).",
+        analystAi: "Analysts rely heavily on statistical significance testing when evaluating A/B tests. AI helps by translating complex statistical outputs into plain business language and recommending the correct statistical test based on the data schema.",
+        realWorldExample: "A company changes its checkout button color from blue to green. Analysts run a t-test to compute the p-value. If the p-value is below 0.05, they prove that the increase in sales was due to the color change, not random chance.",
         code: `# Hypothesis Testing (T-Test) Example with SciPy
 import numpy as np
 from scipy import stats
@@ -110,21 +110,21 @@ print(f"T-statistic: {t_stat:.4f}")
 print(f"P-value: {p_val:.4f}")
 
 if p_val < 0.05:
-    print("Η διαφορά είναι στατιστικά σημαντική (p < 0.05).")
+    print("Difference is statistically significant (p < 0.05).")
 else:
-    print("Δεν υπάρχει στατιστικά σημαντική διαφορά.")`,
+    print("No statistically significant difference detected.")`,
         quiz: [
             {
-                q: "Τι σημαίνει συνήθως όταν το p-value είναι μικρότερο από 0.05;",
+                q: "What does it indicate when a p-value is less than 0.05?",
                 options: [
-                    "Το εύρημα είναι στατιστικά σημαντικό και απορρίπτουμε τη μηδενική υπόθεση.",
-                    "Το μοντέλο AI έχει 95% ακρίβεια.",
-                    "Υπάρχει μεγάλο σφάλμα στα δεδομένα εισόδου."
+                    "The finding is statistically significant, and we reject the null hypothesis.",
+                    "The AI model has achieved 95% classification accuracy.",
+                    "There is a severe measurement error in the input dataset."
                 ],
                 correct: 0
             },
             {
-                q: "Ποιο Python πακέτο χρησιμοποιείται ευρέως για επιστημονικούς και στατιστικούς υπολογισμούς (π.χ. t-test);",
+                q: "Which Python library is the standard for scientific and statistical operations (like t-tests)?",
                 options: [
                     "matplotlib",
                     "SciPy",
@@ -136,9 +136,9 @@ else:
     },
     "visualization": {
         title: "Data Visualization",
-        theory: "Η οπτικοποίηση μετατρέπει τους ξερούς αριθμούς σε ιστορίες. Με εργαλεία όπως η Matplotlib και η Seaborn, σχεδιάζουμε scatter plots για συσχετίσεις, bar charts για συγκρίσεις κατηγοριών και correlation heatmaps για εύρεση γραμμικών σχέσεων.",
-        analystAi: "Ο Data Analyst σχεδιάζει καθαρά διαγράμματα για να επικοινωνήσει insights στους stakeholders. Το AI βοηθάει γράφοντας γρήγορα κώδικα μορφοποίησης (formatting) και προτείνοντας χρωματικές παλέτες υψηλής αντίθεσης.",
-        realWorldExample: "Ένα line chart (διάγραμμα γραμμής) δείχνει την εξέλιξη της τιμής της μετοχής της Apple τα τελευταία 10 χρόνια, επιτρέποντας στους επενδυτές να δουν αμέσως τη μακροπρόθεσμη ανοδική τάση.",
+        theory: "Data visualization turns raw numbers into visual stories. Using libraries like Matplotlib and Seaborn, you design scatter plots for correlations, bar charts for category comparisons, and heatmaps to visualize multi-variable correlation coefficients.",
+        analystAi: "The Data Analyst designs clean charts to convey data insights to managers. AI assists by writing plotting scripts, adding aesthetic customizations, and suggesting appropriate chart styles for specific variables.",
+        realWorldExample: "An investor views a 10-year Apple stock price line chart. Instead of parsing thousands of daily price rows, the chart instantly visualizes the long-term upward trajectory.",
         code: `# Data Visualization with Seaborn
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -162,16 +162,16 @@ plt.savefig("iris_scatter.png", dpi=150)
 plt.close()`,
         quiz: [
             {
-                q: "Ποιο γράφημα είναι το πλέον κατάλληλο για την οπτικοποίηση της γραμμικής συσχέτισης μεταξύ δύο αριθμητικών στηλών;",
+                q: "Which chart type is best suited to visualize the relationship and correlation between two numerical columns?",
                 options: [
-                    "Bar Chart (Ραβδόγραμμα)",
-                    "Scatter Plot (Διάγραμμα Διασποράς)",
-                    "Pie Chart (Κυκλικό Διάγραμμα)"
+                    "Bar Chart",
+                    "Scatter Plot",
+                    "Pie Chart"
                 ],
                 correct: 1
             },
             {
-                q: "Σε ποια βιβλιοθήκη της Python ανήκει η συνάρτηση heatmap();",
+                q: "Which Python visualization library has a built-in heatmap() function?",
                 options: [
                     "Seaborn",
                     "Pandas",
@@ -183,9 +183,9 @@ plt.close()`,
     },
     "feature-engineering": {
         title: "Feature Engineering",
-        theory: "Το Feature Engineering περιλαμβάνει τη δημιουργία νέων μεταβλητών ή τον μετασχηματισμό των υπαρχουσών για να βοηθηθεί ο αλγόριθμος ML. Παραδείγματα: One-Hot Encoding (για κατηγορικές μεταβλητές), MinMax Scaling (για κανονικοποίηση τιμών) και PCA (για μείωση διαστάσεων).",
-        analystAi: "Ο Data Analyst επιλέγει τις κατάλληλες μεταβλητές βάσει business logic. Το AI βοηθάει προτείνοντας μαθηματικούς μετασχηματισμούς (π.χ. log transformation για skewed distributions) και γράφοντας κώδικα scikit-learn.",
-        realWorldExample: "Μετατρέπουμε μια ημερομηνία '2026-06-28' στη μεταβλητή 'Ημέρα: Κυριακή' και 'Τύπος: Σαββατοκύριακο', επειδή οι αγορές των καταναλωτών τις Κυριακές διαφέρουν σημαντικά από τις καθημερινές.",
+        theory: "Feature engineering is the process of transforming raw inputs into informative variables that help ML algorithms learn. Techniques include One-Hot Encoding (converting text categories to 1s and 0s), Feature Scaling (StandardScaler), and Dimensionality Reduction (PCA).",
+        analystAi: "Analysts select variables based on business logic. AI suggests advanced mathematical transformations (like logarithmic transformations for highly skewed data) and writes scikit-learn preprocessing pipelines.",
+        realWorldExample: "A transaction log contains the timestamp '2026-06-28'. Feature engineering extracts two new columns: 'Day_Of_Week: Sunday' and 'Is_Weekend: 1', because customer shopping behavior changes on weekends.",
         code: `# Encoding and Scaling with Scikit-Learn
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
@@ -209,20 +209,20 @@ print("\nEncoded Cities:")
 print(city_encoded)`,
         quiz: [
             {
-                q: "Τι επιτυγχάνει το One-Hot Encoding;",
+                q: "What is the purpose of One-Hot Encoding?",
                 options: [
-                    "Μετατρέπει κατηγορικές μεταβλητές σε δυαδικές στήλες (0 και 1) ώστε να τις επεξεργαστεί το μοντέλο.",
-                    "Κανονικοποιεί τις τιμές στο εύρος 0 έως 1.",
-                    "Αφαιρεί τις ελλιπείς τιμές από το dataset."
+                    "To convert categorical columns into binary columns (0s and 1s) for compatibility with ML models.",
+                    "To normalize numeric data between 0 and 1.",
+                    "To delete rows with missing values from a DataFrame."
                 ],
                 correct: 0
             },
             {
-                q: "Πότε χρησιμοποιούμε το StandardScaler;",
+                q: "Why do we use StandardScaler?",
                 options: [
-                    "Όταν θέλουμε να διαγράψουμε διπλότυπες γραμμές.",
-                    "Όταν θέλουμε να φέρουμε τις αριθμητικές μεταβλητές στην ίδια κλίμακα με μέση τιμή 0 και τυπική απόκλιση 1.",
-                    "Για να συνδεθούμε σε βάση δεδομένων SQL."
+                    "To remove duplicate entries from our dataset.",
+                    "To scale numeric variables so they have a mean of 0 and a standard deviation of 1.",
+                    "To connect our Python script to a remote SQL database."
                 ],
                 correct: 1
             }
@@ -230,9 +230,9 @@ print(city_encoded)`,
     },
     "sql-pandas": {
         title: "SQL & Pandas Integration",
-        theory: "Η SQL είναι η γλώσσα των βάσεων δεδομένων και η Pandas είναι η γλώσσα της ανάλυσης στη μνήμη. Ο συνδυασμός τους επιτρέπει το φιλτράρισμα, τις ομαδοποιήσεις (groupby), τις συνενώσεις (merges/joins) και τη χρήση παραθυρικών συναρτήσεων (window functions) σε εκατομμύρια γραμμές δεδομένων.",
-        analystAi: "Ο Data Analyst συνδυάζει SQL για την άντληση και Pandas για τον μετασχηματισμό. Το AI μπορεί να μεταφράσει άμεσα ερωτήματα φυσικής γλώσσας σε πολύπλοκα SQL Queries με CTEς ή σε Pandas κώδικα.",
-        realWorldExample: "Συνδέουμε τον πίνακα 'Παραγγελίες' με τον πίνακα 'Πελάτες' για να βρούμε ποιοι πελάτες έχουν πραγματοποιήσει αγορές άνω των €500 συνολικά τον τελευταίο μήνα.",
+        theory: "SQL is the universal language of database servers, and Pandas is the primary tool for in-memory analysis in Python. Integrating them allows you to extract data via queries, join tables, group records, and perform analytics on large datasets.",
+        analystAi: "Data Analysts use SQL to fetch data and Pandas to shape it. AI can instantly translate natural language requests ('find users with total spend > 500') into complex SQL queries or Pandas commands.",
+        realWorldExample: "A company joins the 'Orders' database table with the 'Customers' table on a customer_id key to compute how much revenue was generated by users in Greece.",
         code: `# SQL & Pandas Merge and Aggregate Example
 import pandas as pd
 import sqlite3
@@ -257,7 +257,7 @@ print(result)
 conn.close()`,
         quiz: [
             {
-                q: "Ποια SQL εντολή χρησιμοποιείται για να συνδέσουμε δεδομένα από δύο διαφορετικούς πίνακες βάσει κοινού κλειδιού;",
+                q: "Which SQL clause is used to combine columns from two tables based on a matching key column?",
                 options: [
                     "GROUP BY",
                     "JOIN",
@@ -266,7 +266,7 @@ conn.close()`,
                 correct: 1
             },
             {
-                q: "Ποια μέθοδος της Pandas είναι ισοδύναμη με το SQL JOIN;",
+                q: "Which Pandas function behaves equivalently to an SQL JOIN?",
                 options: [
                     "pd.concat()",
                     "df.groupby()",
@@ -278,9 +278,9 @@ conn.close()`,
     },
     "credit-risk": {
         title: "Credit Risk ML Project",
-        theory: "Ένα κλασικό portfolio project για Data Scientists. Σκοπός είναι η πρόβλεψη της πιθανότητας αθέτησης πληρωμής ενός δανείου (Credit Default). Χρησιμοποιεί αλγορίθμους classification όπως Logistic Regression, Random Forest ή XGBoost.",
-        analystAi: "Ο Analyst αξιολογεί τις επιχειρηματικές επιπτώσεις (π.χ. μείωση ζημιών). Το AI βοηθάει προτείνοντας μεθόδους για την αντιμετώπιση της ανισορροπίας των κλάσεων (class imbalance) και βελτιστοποιώντας τις υπερπαραμέτρους.",
-        realWorldExample: "Μια τράπεζα χρησιμοποιεί ένα μοντέλο Random Forest για να αποφασίσει αυτόματα αν θα εγκρίνει ή θα απορρίψει μια αίτηση πιστωτικής κάρτας, υπολογίζοντας το ρίσκο αθέτησης.",
+        theory: "A cornerstone portfolio project for data professionals. The goal is to predict the probability of a borrower default. It uses classification algorithms like Logistic Regression, Random Forest, or XGBoost.",
+        analystAi: "Analysts map predictions to business decisions (e.g., loss reduction). AI assists by recommending algorithms, optimizing parameters, and offering strategies (like SMOTE) to handle class imbalance.",
+        realWorldExample: "A digital bank runs a Random Forest classifier in real-time when a user applies for a loan, approving or rejecting the application based on predicted default probability.",
         code: `# Binary Classification with Random Forest
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -300,16 +300,16 @@ preds = model.predict(X_test)
 print(classification_report(y_test, preds))`,
         quiz: [
             {
-                q: "Ποια μετρική είναι πιο σημαντική σε ένα imbalanced Credit Risk project όπου οι default πελάτες είναι ελάχιστοι;",
+                q: "Which metric is most crucial in an imbalanced Credit Risk project where default occurrences are rare?",
                 options: [
-                    "Ακρίβεια (Accuracy) - γιατί δείχνει το ποσοστό των σωστών προβλέψεων.",
-                    "F1-Score / Recall για την κλάση 1 (Default) - για να μη χάσουμε τους πελάτες υψηλού ρίσκου.",
+                    "Accuracy - because it shows the overall correct prediction rate.",
+                    "F1-Score / Recall for the Default class - to avoid missing high-risk borrowers.",
                     "Mean Squared Error (MSE)."
                 ],
                 correct: 1
             },
             {
-                q: "Ποιος από τους παρακάτω αλγορίθμους είναι κατάλληλος για Credit Risk Binary Classification;",
+                q: "Which algorithm is suitable for Credit Risk binary classification tasks?",
                 options: [
                     "K-Means",
                     "XGBoost Classifier",
@@ -321,9 +321,9 @@ print(classification_report(y_test, preds))`,
     },
     "email-targeting": {
         title: "Email Targeting & Segmentation",
-        theory: "Ένα data-driven project μάρκετινγκ. Χρησιμοποιεί τη μεθοδολογία RFM (Recency, Frequency, Monetary) για να βαθμολογήσει τους πελάτες και τον αλγόριθμο K-Means Clustering για να τους ομαδοποιήσει σε clusters (π.χ. VIPs, Χαμένοι, Ευκαιριακοί).",
-        analystAi: "Ο Data Analyst αναλύει τα clusters για να προτείνει καμπάνιες email. Το AI βοηθάει δημιουργώντας προσωποποιημένα κείμενα (email copies) προσαρμοσμένα στις ανάγκες του κάθε cluster πελατών.",
-        realWorldExample: "Η Sephora ομαδοποιεί τους πελάτες της. Στο cluster 'VIPs' (αγοράζουν συχνά) στέλνει δωρεάν δείγματα, ενώ στο cluster 'Χαμένοι' (έχουν 6 μήνες να αγοράσουν) στέλνει εκπτωτικό κουπόνι 20% για επαναφορά.",
+        theory: "A data-driven marketing project. It scores customers using RFM metrics (Recency, Frequency, Monetary) and segments them into groups (VIPs, Lost, Casuals) using K-Means Clustering.",
+        analystAi: "Analysts analyze clusters to target campaigns. AI helps by writing copy for marketing emails tailored to the specific traits of each customer cluster.",
+        realWorldExample: "An e-commerce store identifies a cluster of 'Lost VIPs' (users who spent a lot but haven't visited in 6 months) and sends them a targeted 20% discount email to win them back.",
         code: `# K-Means Clustering for Customer Segmentation
 from sklearn.cluster import KMeans
 import pandas as pd
@@ -342,19 +342,19 @@ df_customers['Cluster'] = clusters
 print(df_customers.groupby('Cluster').mean())`,
         quiz: [
             {
-                q: "Τι αντιπροσωπεύουν τα αρχικά RFM στο Customer Segmentation;",
+                q: "What do the RFM metrics stand for in Customer Segmentation?",
                 options: [
                     "Random, Forest, Model",
-                    "Recency (Πρόσφατη αγορά), Frequency (Συχνότητα), Monetary (Χρηματική αξία)",
+                    "Recency, Frequency, Monetary Value",
                     "Rate, Fraction, Median"
                 ],
                 correct: 1
             },
             {
-                q: "Ο K-Means ανήκει σε ποια κατηγορία Μηχανικής Μάθησης;",
+                q: "Which machine learning category does K-Means Clustering belong to?",
                 options: [
-                    "Supervised Learning (Επιβλεπόμενη Μάθηση)",
-                    "Unsupervised Learning (Μη Επιβλεπόμενη Μάθηση)",
+                    "Supervised Learning",
+                    "Unsupervised Learning",
                     "Reinforcement Learning"
                 ],
                 correct: 1
@@ -363,9 +363,9 @@ print(df_customers.groupby('Cluster').mean())`,
     },
     "time-series": {
         title: "Time Series Analysis",
-        theory: "Η ανάλυση χρονοσειρών (Time Series) μελετά δεδομένα που έχουν καταγραφεί σε διαδοχικές χρονικές στιγμές (π.χ. ημερήσιες πωλήσεις). Χρησιμοποιεί μοντέλα όπως το ARIMA ή το Prophet της Meta για την πρόβλεψη μελλοντικών τίμών (forecasting) λαμβάνοντας υπόψη την εποχικότητα (seasonality) και την τάση (trend).",
-        analystAi: "Ο Analyst χρησιμοποιεί το forecasting για προϋπολογισμούς και αποθέματα. Το AI βοηθάει στην ανίχνευση ξαφνικών αλλαγών στην τάση (trend shifts) και στη σύνταξη επεξηγήσεων για τις προβλέψεις.",
-        realWorldExample: "Ο ΔΕΔΔΗΕ (ή πάροχος ενέργειας) προβλέπει τη ζήτηση ηλεκτρικού ρεύματος για την επόμενη εβδομάδα βάσει ιστορικών στοιχείων και καιρού, ώστε να ρυθμίσει την παραγωγή και να αποφύγει blackout.",
+        theory: "Time Series Analysis deals with data indexed in chronological order (e.g. daily sales). It uses models like ARIMA or Meta's Prophet to forecast future values by extracting trends, seasonality, and cyclic behaviors.",
+        analystAi: "Analysts use forecasts for budgeting and demand planning. AI assists by detecting structural shifts in trends and writing automated summary reports about future projections.",
+        realWorldExample: "An energy provider forecasts electricity consumption for the upcoming week based on historical load data and weather forecasts, adjusting generation to prevent power outages.",
         code: `# Simple Forecasting with Statsmodels (ARIMA)
 import pandas as pd
 import numpy as np
@@ -384,16 +384,16 @@ forecast = model_fit.forecast(steps=3)
 print("Forecasted Sales for next 3 months:", forecast)`,
         quiz: [
             {
-                q: "Τι είναι η εποχικότητα (seasonality) σε μια χρονοσειρά;",
+                q: "What is seasonality in time series data?",
                 options: [
-                    "Η μακροπρόθεσμη ανοδική ή καθοδική κατεύθυνση των δεδομένων.",
-                    "Επαναλαμβανόμενες διακυμάνσεις που συμβαίνουν σε συγκεκριμένα χρονικά διαστήματα (π.χ. αυξημένες πωλήσεις κάθε Δεκέμβριο).",
-                    "Το τυχαίο σφάλμα στις μετρήσεις."
+                    "The long-term upward or downward direction of data points.",
+                    "Repetitive, predictable fluctuations that occur at specific intervals (e.g., peak retail sales every December).",
+                    "Random, unexplained noise in data measurements."
                 ],
                 correct: 1
             },
             {
-                q: "Ποιο διάσημο open-source εργαλείο για Time Series Forecasting αναπτύχθηκε από τη Meta (Facebook);",
+                q: "Which popular forecasting tool was open-sourced by Meta (Facebook)?",
                 options: [
                     "TensorFlow",
                     "Prophet",
@@ -405,9 +405,9 @@ print("Forecasted Sales for next 3 months:", forecast)`,
     },
     "nlp": {
         title: "NLP (Natural Language Processing)",
-        theory: "Η επεξεργασία φυσικής γλώσσας (NLP) επιτρέπει στους υπολογιστές να κατανοούν το γραπτό κείμενο. Περιλαμβάνει εργασίες όπως Sentiment Analysis (ανάλυση συναισθήματος), Text Classification και τη χρήση προεκπαιδευμένων μοντέλων Transformer (όπως το BERT) για σημασιολογική κατανόηση.",
-        analystAi: "Ο Data Analyst αναλύει κριτικές πελατών ή tweets. Το AI (LLM) είναι το ίδιο ένα προϊόν NLP, οπότε μπορεί να χρησιμοποιηθεί για να ταξινομήσει αυτόματα χιλιάδες κριτήρια με μηδενικό κώδικα (Zero-shot classification).",
-        realWorldExample: "Η Booking.com αναλύει αυτόματα χιλιάδες σχόλια ξενοδοχείων και τα κατηγοριοποιεί σε 'Θετικά' ή 'Αρνητικά' για να βαθμολογήσει την καθαριότητα, την τοποθεσία και το προσωπικό.",
+        theory: "Natural Language Processing (NLP) enables computers to read and understand text. It spans tasks like Sentiment Analysis, text classification, and semantic searches using Transformer architectures (like BERT).",
+        analystAi: "Analysts extract insights from user reviews. AI (large language models) is itself an NLP engine, meaning it can classify thousands of customer tickets instantly without training.",
+        realWorldExample: "Booking.com scans guest reviews, automatically labeling them as Positive or Negative and highlighting comments specifically regarding 'service', 'cleanliness', or 'location'.",
         code: `# Sentiment Analysis using Hugging Face Transformers
 from transformers import pipeline
 
@@ -426,16 +426,16 @@ except Exception as e:
     print("Please install transformers and pytorch/tensorflow to run. Error:", e)`,
         quiz: [
             {
-                q: "Τι είναι το Sentiment Analysis;",
+                q: "What is Sentiment Analysis?",
                 options: [
-                    "Η διαδικασία αυτόματης μετάφρασης κειμένου σε άλλη γλώσσα.",
-                    "Η αναγνώριση και ταξινόμηση του συναισθηματικού τόνου ενός κειμένου (θετικός, αρνητικός, ουδέτερος).",
-                    "Η μετατροπή φωνής σε γραπτό κείμενο."
+                    "The process of translating text into a different language.",
+                    "Identifying and classifying the emotional tone of text (e.g. positive, negative, neutral).",
+                    "Converting spoken voice audio files into text."
                 ],
                 correct: 1
             },
             {
-                q: "Ποια αρχιτεκτονική βαθιάς μάθησης έφερε επανάσταση στο NLP και αποτελεί τη βάση των σημερινών LLMs (όπως το Claude και το GPT);",
+                q: "Which deep learning architecture revolutionized NLP and forms the foundation of modern LLMs?",
                 options: [
                     "Convolutional Neural Networks (CNN)",
                     "Transformers",
@@ -446,10 +446,10 @@ except Exception as e:
         ]
     },
     "deep-learning": {
-        title: "Deep Learning (Βαθιά Μάθηση)",
-        theory: "Η Βαθιά Μάθηση (Deep Learning) είναι υποκατηγορία του ML που χρησιμοποιεί Πολυεπίπεδα Νευρωνικά Δίκτυα (Artificial Neural Networks). Χρησιμοποιεί βιβλιοθήκες όπως η PyTorch ή η Keras/TensorFlow. Είναι ιδανική για μη δομημένα δεδομένα (unstructured data) όπως εικόνες (CNNs) και ήχο.",
-        analystAi: "Οι Data Scientists χρησιμοποιούν Deep Learning για Computer Vision ή περίπλοκες προβλέψεις. Το AI βοηθάει γράφοντας την αρχιτεκτονική του δικτύου (layers) και προτείνοντας βέλτιστους optimizers (π.χ. Adam).",
-        realWorldExample: "Η λειτουργία FaceID της Apple που ξεκλειδώνει το iPhone, ή η αυτόματη αναγνώριση πινακίδων κυκλοφορίας και πεζών από τα αυτοκίνητα Tesla (Self-driving).",
+        title: "Deep Learning",
+        theory: "Deep Learning is a subset of ML based on Artificial Neural Networks. Using libraries like PyTorch or TensorFlow/Keras, it excels at learning from unstructured data formats (e.g., images with CNNs, audio with RNNs).",
+        analystAi: "Scientists design neural network layers for computer vision tasks. AI assists by writing neural layer configurations, setting weight initializations, and recommending optimizers (like Adam).",
+        realWorldExample: "Apple's FaceID unlocking your phone, or self-driving cars (like Tesla) using neural networks to detect road signs, pedestrians, and lane boundaries in real-time.",
         code: `# Simple Neural Network with Keras
 import numpy as np
 try:
@@ -469,7 +469,7 @@ except ImportError:
     print("Please install tensorflow to run this code snippet.")`,
         quiz: [
             {
-                q: "Ποιος τύπος νευρωνικού δικτύου είναι ο πλέον κατάλληλος για επεξεργασία εικόνας (Computer Vision);",
+                q: "Which type of Neural Network is specifically suited for image processing (Computer Vision)?",
                 options: [
                     "Recurrent Neural Networks (RNN)",
                     "Convolutional Neural Networks (CNN)",
@@ -478,11 +478,11 @@ except ImportError:
                 correct: 1
             },
             {
-                q: "Ποια είναι η βασική διαφορά του Deep Learning από το κλασικό Machine Learning;",
+                q: "What is a main difference between Deep Learning and classical Machine Learning?",
                 options: [
-                    "Το Deep Learning δεν απαιτεί καθαρισμό δεδομένων.",
-                    "Το Deep Learning χρησιμοποιεί βαθιές αρχιτεκτονικές νευρωνικών δικτύων και μπορεί να κάνει αυτόματα feature extraction από μη δομημένα δεδομένα.",
-                    "Το Deep Learning τρέχει μόνο σε SQL βάσεις."
+                    "Deep Learning does not require any data preprocessing.",
+                    "Deep Learning utilizes deep neural architectures and can perform feature extraction automatically from unstructured data.",
+                    "Deep Learning only runs inside SQL databases."
                 ],
                 correct: 1
             }
@@ -490,9 +490,9 @@ except ImportError:
     },
     "model-deployment": {
         title: "Model Deployment & MLOps",
-        theory: "Η εκπαίδευση ενός μοντέλου είναι μόνο η αρχή. Model Deployment σημαίνει να κάνουμε το μοντέλο προσβάσιμο σε άλλες εφαρμογές. Συνήθως το 'πακετάρουμε' σε ένα API (χρησιμοποιώντας FastAPI) και το τρέχουμε μέσα σε ένα Docker container για φορητότητα.",
-        analystAi: "Ο Data Analyst συνδέει BI εργαλεία (Tableau/PowerBI) με το API του μοντέλου. Το AI βοηθάει γράφοντας τα Dockerfiles, τις ρυθμίσεις του server και δημιουργώντας Web Apps (π.χ. με Streamlit) για παρουσίαση.",
-        realWorldExample: "Φτιάχνουμε μια ιστοσελίδα όπου ο χρήστης εισάγει τις ώρες μελέτης του και παίρνει ακαριαία την πρόβλεψη του βαθμού του, χάρη σε ένα API που 'τρέχει' το μοντέλο στο background.",
+        theory: "Training a model is just the beginning. Deployment means exposing it so other apps can consume it. This involves wrapping the model inside a REST API (using FastAPI) and deploying it within a Docker container.",
+        analystAi: "Analysts connect BI dashboards to the model API. AI assists by writing Dockerfiles, server configs, and creating interactive demo web applications (using Streamlit).",
+        realWorldExample: "Creating a web page where a user enters their income and gets an instant loan approval decision, powered by a deployed machine learning API running in the background.",
         code: `# Deploying a Model API with FastAPI
 # Run with: uvicorn main:app --reload
 try:
@@ -517,20 +517,20 @@ except ImportError:
     print("Please install fastapi and uvicorn to deploy this API.")`,
         quiz: [
             {
-                q: "Τι είναι το FastAPI;",
+                q: "What is FastAPI?",
                 options: [
-                    "Μια βάση δεδομένων SQL.",
-                    "Ένα σύγχρονο, γρήγορο framework για τη δημιουργία REST APIs σε Python.",
-                    "Ένας αλγόριθμος ταξινόμησης (classification)."
+                    "An SQL relational database server.",
+                    "A modern, high-performance web framework for building APIs in Python.",
+                    "A classification algorithm."
                 ],
                 correct: 1
             },
             {
-                q: "Ποιο είναι το κύριο όφελος της χρήσης του Docker στο Model Deployment;",
+                q: "What is the primary benefit of utilizing Docker in model deployment?",
                 options: [
-                    "Εξασφαλίζει ότι το μοντέλο θα τρέχει στο ίδιο απομονωμένο περιβάλλον (container) ανεξάρτητα από το λειτουργικό σύστημα του server.",
-                    "Αυξάνει την ακρίβεια (accuracy) του μοντέλου ML.",
-                    "Διαγράφει αυτόματα τις ελλιπείς τιμές."
+                    "It packs the app and dependencies into an isolated container to ensure it runs consistently on any OS.",
+                    "It improves the classification accuracy of our ML model.",
+                    "It automatically removes duplicate rows."
                 ],
                 correct: 0
             }
@@ -538,9 +538,9 @@ except ImportError:
     },
     "model-evaluation": {
         title: "Model Evaluation & Tuning",
-        theory: "Η αξιολόγηση περιλαμβάνει τον έλεγχο της ικανότητας γενίκευσης του μοντέλου. Χρησιμοποιούμε Cross-Validation για αποφυγή overfitting, το Hyperparameter Tuning (μέσω Optuna ή GridSearchCV) για εύρεση βέλτιστων παραμέτρων και το SHAP για ερμηνευσιμότητα (Explainable AI).",
-        analystAi: "Ο Data Analyst εξηγεί γιατί το μοντέλο πήρε μια απόφαση (χρησιμοποιώντας SHAP values). Το AI βοηθάει προτείνοντας στρατηγικές βελτιστοποίησης (tuning spaces) και εξηγώντας τη σημασία των feature importances.",
-        realWorldExample: "Για ένα φίλτρο Spam emails, αξιολογούμε πόσα κανονικά emails μπλόκαρε κατά λάθος (False Positives) σε σχέση με το πόσα spam άφησε να περάσουν, για να ρυθμίσουμε την ευαισθησία του.",
+        theory: "Evaluation validates the generalization capability of models. We utilize Cross-Validation to prevent overfitting, Hyperparameter Tuning (Optuna / GridSearchCV) to search parameters, and SHAP for explainable AI.",
+        analystAi: "Analysts explain predictions to managers. AI helps by defining hyperparameter ranges, interpreting feature importances, and explaining SHAP outputs.",
+        realWorldExample: "For a spam filter, we evaluate how many real emails were blocked (False Positives) vs. how much spam leaked through (False Negatives) to optimize the classification threshold.",
         code: `# Hyperparameter Tuning with GridSearchCV
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
@@ -562,16 +562,16 @@ print("Best Parameters found:", grid_search.best_params_)
 print("Best Cross-Validation Score:", grid_search.best_score_)`,
         quiz: [
             {
-                q: "Τι επιτυγχάνει η μέθοδος K-Fold Cross-Validation;",
+                q: "What does K-Fold Cross-Validation accomplish?",
                 options: [
-                    "Χωρίζει τα δεδομένα σε K μέρη, εκπαιδεύει το μοντέλο K φορές και αξιολογεί τη γενίκευση, αποτρέποντας το overfitting.",
-                    "Εκπαιδεύει K διαφορετικούς αλγορίθμους ταυτόχρονα.",
-                    "Αυξάνει το μέγεθος του dataset κατά K φορές."
+                    "It splits the dataset into K folds, trains K times, and validates generalization to prevent overfitting.",
+                    "It trains K different model architectures concurrently.",
+                    "It increases our dataset size K times."
                 ],
                 correct: 0
             },
             {
-                q: "Ποια βιβλιοθήκη Python χρησιμοποιείται για την ερμηνεία των αποφάσεων ενός μοντέλου (Explainable AI);",
+                q: "Which Python library is widely used for Explainable AI (interpreting ML model decisions)?",
                 options: [
                     "SciPy",
                     "SHAP",
@@ -583,9 +583,9 @@ print("Best Cross-Validation Score:", grid_search.best_score_)`,
     },
     "bi": {
         title: "Business Intelligence & A/B Testing",
-        theory: "Η Επιχειρηματική Ευφυΐα (BI) συνδέει τα δεδομένα με τη λήψη αποφάσεων. Περιλαμβάνει τη δημιουργία KPIs, διαδραστικών dashboards (Tableau, PowerBI, Streamlit) και το σχεδιασμό πειραμάτων A/B Testing για τη μέτρηση της επίδρασης μιας αλλαγής.",
-        analystAi: "Ο Data Analyst είναι ο συνδετικός κρίκος BI και διοίκησης. Το AI βοηθάει γράφοντας SQL queries για dashboards και αναλύοντας τα αποτελέσματα των A/B tests για να γράψει executive summaries.",
-        realWorldExample: "Η efood δείχνει σε 50% των χρηστών ένα κόκκινο κουμπί 'Παράγγειλε' και στο άλλο 50% ένα πράσινο κουμπί (A/B Test). Μετά από μία εβδομάδα, ο αναλυτής μετράει ποιο κουμπί έφερε τις περισσότερες παραγγελίες.",
+        theory: "Business Intelligence (BI) bridges analytical data and strategic actions. It involves setting up KPIs, launching interactive dashboards (Tableau, PowerBI), and running statistical A/B tests to measure impact.",
+        analystAi: "The Data Analyst is the core BI resource. AI writes SQL queries for dashboard widgets and analyzes A/B test outputs to draft executive summaries for leadership.",
+        realWorldExample: "A delivery app serves a red checkout button to 50% of users and a green button to 50% (A/B Test). After a week, analysts run a Z-test to see if the green button significantly increased conversions.",
         code: `# A/B Test Significance Calculation
 import numpy as np
 from statsmodels.stats.proportion import proportions_ztest
@@ -603,25 +603,25 @@ z_stat, p_val = proportions_ztest(count, nobs)
 print(f"Z-statistic: {z_stat:.4f}")
 print(f"P-value: {p_val:.4f}")
 if p_val < 0.05:
-    print("Η αλλαγή στο layout B έφερε στατιστικά σημαντική βελτίωση!")
+    print("Change in layout B is statistically significant!")
 else:
-    print("Η διαφορά δεν είναι στατιστικά σημαντική.")`,
+    print("No statistically significant difference detected.")`,
         quiz: [
             {
-                q: "Ποιος είναι ο κύριος σκοπός ενός πειράματος A/B Testing;",
+                q: "What is the primary objective of A/B Testing?",
                 options: [
-                    "Η εκπαίδευση νευρωνικών δικτύων.",
-                    "Η σύγκριση δύο εκδόσεων (A και B) για τη μέτρηση της στατιστικά σημαντικής διαφοράς σε ένα KPI (π.χ. conversion rate).",
-                    "Η δημιουργία αντιγράφων ασφαλείας της βάσης."
+                    "Training deep learning models.",
+                    "Comparing two variants (A and B) to measure statistically significant improvements in key business metrics.",
+                    "Creating database backups."
                 ],
                 correct: 1
             },
             {
-                q: "Ποιο εργαλείο BI χρησιμοποιείται ευρέως για drag-and-drop οπτικοποιήσεις και dashboards;",
+                q: "Which tools are the market standard for drag-and-drop BI visualizations and dashboards?",
                 options: [
                     "FastAPI",
                     "Tableau / PowerBI",
-                    "Scipy"
+                    "SciPy"
                 ],
                 correct: 1
             }
@@ -629,9 +629,9 @@ else:
     },
     "recommender": {
         title: "Recommender Systems",
-        theory: "Τα συστήματα συστάσεων (Recommender Systems) προτείνουν προϊόντα ή περιεχόμενο στους χρήστες (όπως το Netflix ή το Amazon). Χρησιμοποιούν μεθόδους όπως Collaborative Filtering (συνεργατικό φιλτράρισμα βάσει κοινών προτιμήσεων χρηστών) και Content-Based Filtering.",
-        analystAi: "Ο Analyst μετράει το Conversion Rate των προτάσεων. Το AI βοηθάει δημιουργώντας embeddings (διανύσματα) χρηστών και προϊόντων για να υπολογίσει τη σημασιολογική ομοιότητα σε δισεκατομμύρια εγγραφές.",
-        realWorldExample: "Το YouTube προτείνει το επόμενο βίντεο στην αρχική σας σελίδα αναλύοντας τι βίντεο είδαν άλλοι χρήστες που έχουν παρόμοιο ιστορικό προβολών με εσάς (Collaborative Filtering).",
+        theory: "Recommender systems suggest items to users (like Netflix movies or Amazon products). Techniques include Collaborative Filtering (based on similar user behavior profiles) and Content-Based Filtering.",
+        analystAi: "Analysts monitor recommendation conversion rates. AI assists by calculating semantic similarity embeddings for user-product matrix matching at scale.",
+        realWorldExample: "Spotify generating a 'Discover Weekly' playlist for you by analyzing what songs other users listened to who share a similar taste profile to you.",
         code: `# Collaborative Filtering Concept (Cosine Similarity)
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
@@ -645,23 +645,23 @@ user_3 = np.array([[1, 0, 5]]) # Dislikes action, likes romance
 sim_1_2 = cosine_similarity(user_1, user_2)[0][0]
 sim_1_3 = cosine_similarity(user_1, user_3)[0][0]
 
-print(f"Similarity User 1 & User 2: {sim_1_2:.4f} (Υψηλή)")
-print(f"Similarity User 1 & User 3: {sim_1_3:.4f} (Χαμηλή)")`,
+print(f"Similarity User 1 & User 2: {sim_1_2:.4f} (High)")
+print(f"Similarity User 1 & User 3: {sim_1_3:.4f} (Low)")`,
         quiz: [
             {
-                q: "Πώς λειτουργεί το Collaborative Filtering;",
+                q: "How does Collaborative Filtering make item suggestions?",
                 options: [
-                    "Κάνει προτάσεις σε έναν χρήστη βασιζόμενο στις προτιμήσεις άλλων παρόμοιων χρηστών.",
-                    "Προτείνει προϊόντα τυχαία.",
-                    "Αναλύει μόνο τα τεχνικά χαρακτηριστικά του προϊόντος χωρίς να κοιτάει άλλους χρήστες."
+                    "By recommending items liked by other users with similar historical preference patterns.",
+                    "By presenting completely random items.",
+                    "By analyzing item properties only, ignoring other user activities."
                 ],
                 correct: 0
             },
             {
-                q: "Ποια μαθηματική μετρική χρησιμοποιείται συχνά για να μετρηθεί η ομοιότητα προτιμήσεων μεταξύ δύο χρηστών;",
+                q: "Which metric is commonly used to evaluate the similarity between two user rating vectors?",
                 options: [
                     "Mean Absolute Error (MAE)",
-                    "Cosine Similarity (Ομοιότητα Συνημιτόνου)",
+                    "Cosine Similarity",
                     "P-value"
                 ],
                 correct: 1
@@ -670,9 +670,9 @@ print(f"Similarity User 1 & User 3: {sim_1_3:.4f} (Χαμηλή)")`,
     },
     "anomaly": {
         title: "Anomaly Detection",
-        theory: "Η ανίχνευση ανωμαλιών (Anomaly Detection) εντοπίζει μοτίβα που αποκλίνουν σημαντικά από τη φυσιολογική συμπεριφορά. Χρησιμοποιείται κυρίως για ανίχνευση απάτης (Fraud Detection) σε τραπεζικές συναλλαγές, χρησιμοποιώντας αλγορίθμους όπως το Isolation Forest.",
-        analystAi: "Ο Data Analyst αναλύει τα ψευδώς θετικά αποτελέσματα (false positives) για να μειώσει την ενόχληση των πελατών. Το AI βοηθάει ανιχνεύοντας σε πραγματικό χρόνο περίπλοκες, μεταβαλλόμενες τακτικές απάτης.",
-        realWorldExample: "Η Revolut (ή μια τράπεζα) μπλοκάρει ακαριαία την πιστωτική σας κάρτα επειδή πραγματοποιήθηκε μια αγορά €1.000 στη Νέα Υόρκη, μόλις 5 λεπτά μετά από μια αγορά σας σε καφετέρια στην Αθήνα.",
+        theory: "Anomaly Detection identifies patterns that deviate significantly from expected normal behavior. It is vital for Fraud Detection in credit card transactions, using algorithms like Isolation Forest.",
+        analystAi: "Analysts investigate false positives to reduce user friction. AI supports by detecting complex fraud patterns and identifying outliers in multi-dimensional datasets.",
+        realWorldExample: "A fintech bank blocks a debit card charge of $2,000 in Tokyo, because the user just bought a coffee in Athens 5 minutes prior (geographic anomaly).",
         code: `# Anomaly Detection with Isolation Forest
 from sklearn.ensemble import IsolationForest
 import numpy as np
@@ -690,20 +690,20 @@ preds = model.fit_predict(data) # returns -1 for anomalies, 1 for normal
 print("Detected Anomalies (indices):", np.where(preds == -1)[0])`,
         quiz: [
             {
-                q: "Ποια είναι η βασική αρχή λειτουργίας του αλγορίθμου Isolation Forest;",
+                q: "What is the core working principle of Isolation Forest?",
                 options: [
-                    "Απομονώνει τις ανωμαλίες επειδή απαιτούνται λιγότερες τυχαίες διαιρέσεις (splits) για να διαχωριστούν από τα φυσιολογικά δεδομένα.",
-                    "Εκπαιδεύει ένα βαθύ νευρωνικό δίκτυο με εικόνες.",
-                    "Υπολογίζει το p-value κάθε στήλης."
+                    "It isolates anomalies because they require fewer random splits to separate from normal data points.",
+                    "It trains a deep convolutional neural network.",
+                    "It computes p-values of columns."
                 ],
                 correct: 0
             },
             {
-                q: "Σε ποια περίπτωση είναι κρίσιμη η χρήση Anomaly Detection;",
+                q: "In which industry scenario is Anomaly Detection a critical feature?",
                 options: [
-                    "Στο Customer Segmentation.",
-                    "Στην ανίχνευση κλοπής πιστωτικών καρτών (Fraud Detection) και κυβερνοεπιθέσεων.",
-                    "Στη δημιουργία standard Excel πινάκων."
+                    "Customer Segmentation.",
+                    "Credit Card Fraud Detection and cyber intrusion monitoring.",
+                    "Exporting standard Excel sheets."
                 ],
                 correct: 1
             }
@@ -711,11 +711,36 @@ print("Detected Anomalies (indices):", np.where(preds == -1)[0])`,
     }
 };
 
+// Directed Acyclic Graph (DAG) Prerequisites definition
+const prerequisites = {
+    "preprocessing": [],
+    "eda": ["preprocessing"],
+    "statistics": ["eda"],
+    "visualization": ["statistics"],
+    "feature-engineering": ["statistics"],
+    "sql-pandas": ["statistics"],
+    "credit-risk": ["visualization", "feature-engineering", "sql-pandas"],
+    "email-targeting": ["visualization", "feature-engineering", "sql-pandas"],
+    "time-series": ["credit-risk", "email-targeting"],
+    "nlp": ["credit-risk", "email-targeting"],
+    "deep-learning": ["credit-risk", "email-targeting"],
+    "model-deployment": ["time-series", "nlp", "deep-learning"],
+    "model-evaluation": ["time-series", "nlp", "deep-learning"],
+    "bi": ["model-deployment", "model-evaluation"],
+    "recommender": ["model-deployment", "model-evaluation"],
+    "anomaly": ["model-deployment", "model-evaluation"]
+};
+
+// State store
+let completedModules = [];
+let activeModuleKey = "";
+
 // DOM references
 const roadmapNodes = document.querySelectorAll(".roadmap-node");
 const detailDrawer = document.getElementById("detail-drawer");
 const drawerOverlay = document.getElementById("drawer-overlay");
 const closeDrawerBtn = document.getElementById("close-drawer-btn");
+const resetProgressBtn = document.getElementById("reset-progress-btn");
 
 const drawerTitle = document.getElementById("drawer-title");
 const theoryDesc = document.getElementById("theory-desc");
@@ -732,11 +757,98 @@ const quizQuestionBox = document.getElementById("quiz-question-box");
 const submitQuizBtn = document.getElementById("submit-quiz-btn");
 const quizFeedbackBox = document.getElementById("quiz-feedback-box");
 
-let activeModuleKey = "";
+// Toast elements
+const toastContainer = document.getElementById("toast-container");
 
 // Initialize App
 function init() {
+    loadProgress();
+    updateNodeStates();
     setupEventListeners();
+}
+
+// Load from LocalStorage
+function loadProgress() {
+    try {
+        const stored = localStorage.getItem("completedModules");
+        completedModules = stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        completedModules = [];
+    }
+}
+
+// Save to LocalStorage
+function saveProgress() {
+    try {
+        localStorage.setItem("completedModules", JSON.stringify(completedModules));
+    } catch (e) {
+        console.error("Failed to save progress:", e);
+    }
+}
+
+// Reset Progress
+function resetProgress() {
+    completedModules = [];
+    saveProgress();
+    updateNodeStates();
+    closeDrawer();
+    showToast("Progress has been reset. Starting over!", "success");
+}
+
+// Calculate node states (locked, active, completed) and update DOM classes/badges
+function updateNodeStates() {
+    roadmapNodes.forEach(node => {
+        const moduleKey = node.getAttribute("data-module");
+        const badgeContainer = node.querySelector(".status-badge-container");
+
+        // Clear existing state classes
+        node.classList.remove("node-locked", "node-active", "node-completed");
+
+        if (completedModules.includes(moduleKey)) {
+            // Completed state
+            node.classList.add("node-completed");
+            badgeContainer.innerHTML = `<span class="status-badge"><i class="fa-solid fa-check"></i> Completed</span>`;
+        } else {
+            // Check prerequisites
+            const reqs = prerequisites[moduleKey] || [];
+            const unlocked = reqs.every(prereq => completedModules.includes(prereq));
+
+            if (unlocked) {
+                // Active state
+                node.classList.add("node-active");
+                badgeContainer.innerHTML = `<span class="status-badge"><i class="fa-solid fa-play"></i> Active</span>`;
+            } else {
+                // Locked state
+                node.classList.add("node-locked");
+                badgeContainer.innerHTML = `<span class="status-badge"><i class="fa-solid fa-lock"></i> Locked</span>`;
+            }
+        }
+    });
+}
+
+// Show custom toast alert
+function showToast(message, type = "warning") {
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+    const icon = type === "success" ? "fa-solid fa-circle-check" : "fa-solid fa-triangle-exclamation";
+    toast.innerHTML = `<i class="${icon}"></i> <span>${message}</span>`;
+    
+    toastContainer.appendChild(toast);
+    
+    // Animate out and remove
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(-20px)";
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+// Get missing prerequisite titles
+function getMissingPrerequisites(moduleKey) {
+    const reqs = prerequisites[moduleKey] || [];
+    return reqs
+        .filter(prereq => !completedModules.includes(prereq))
+        .map(prereq => modulesData[prereq]?.title || prereq);
 }
 
 // Open detail drawer for a module
@@ -794,7 +906,7 @@ function renderQuiz(quizList) {
     quizFeedbackBox.className = "quiz-feedback";
 
     if (!quizList || quizList.length === 0) {
-        quizQuestionBox.innerHTML = "<p>Δεν υπάρχει διαθέσιμο κουίζ για αυτό το μάθημα.</p>";
+        quizQuestionBox.innerHTML = "<p>No practice quiz available for this module.</p>";
         submitQuizBtn.style.display = "none";
         return;
     }
@@ -846,17 +958,30 @@ function validateQuiz() {
     });
 
     if (answeredCount < questions.length) {
-        quizFeedbackBox.innerText = "Παρακαλώ απαντήστε σε όλες τις ερωτήσεις πριν την υποβολή.";
+        quizFeedbackBox.innerText = "Please answer all questions before submitting.";
         quizFeedbackBox.className = "quiz-feedback incorrect";
         quizFeedbackBox.style.display = "block";
         return;
     }
 
     if (allCorrect) {
-        quizFeedbackBox.innerText = "Συγχαρητήρια! Όλες οι απαντήσεις είναι σωστές! 🎉";
+        quizFeedbackBox.innerText = "Congratulations! All answers are correct! 🎉";
         quizFeedbackBox.className = "quiz-feedback correct";
+        
+        // Save progress if not already completed
+        if (!completedModules.includes(activeModuleKey)) {
+            completedModules.push(activeModuleKey);
+            saveProgress();
+            updateNodeStates();
+            showToast(`Unlocked next level: completed ${modulesData[activeModuleKey].title}!`, "success");
+            
+            // Close drawer after short delay to let user see success message
+            setTimeout(() => {
+                closeDrawer();
+            }, 1500);
+        }
     } else {
-        quizFeedbackBox.innerText = "Κάποιες απαντήσεις είναι λανθασμένες. Ξαναπροσπάθησε!";
+        quizFeedbackBox.innerText = "Some answers are incorrect. Try again!";
         quizFeedbackBox.className = "quiz-feedback incorrect";
     }
     quizFeedbackBox.style.display = "block";
@@ -868,6 +993,14 @@ function setupEventListeners() {
     roadmapNodes.forEach(node => {
         node.addEventListener("click", () => {
             const moduleKey = node.getAttribute("data-module");
+            
+            // Check if locked
+            if (node.classList.contains("node-locked")) {
+                const missing = getMissingPrerequisites(moduleKey);
+                showToast(`Locked! Complete prerequisites first: ${missing.join(", ")}`, "warning");
+                return;
+            }
+            
             openDrawer(moduleKey);
         });
     });
@@ -875,6 +1008,9 @@ function setupEventListeners() {
     // Close button / overlay click
     if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeDrawer);
     if (drawerOverlay) drawerOverlay.addEventListener("click", closeDrawer);
+
+    // Reset progress button click
+    if (resetProgressBtn) resetProgressBtn.addEventListener("click", resetProgress);
 
     // Sub-tab switching
     subtabButtons.forEach(btn => {
@@ -888,9 +1024,9 @@ function setupEventListeners() {
     if (copyCodeBtn) {
         copyCodeBtn.addEventListener("click", () => {
             navigator.clipboard.writeText(codeBlock.innerText).then(() => {
-                copyCodeBtn.innerHTML = `<i class="fa-solid fa-check"></i> Αντιγράφηκε!`;
+                copyCodeBtn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
                 setTimeout(() => {
-                    copyCodeBtn.innerHTML = `<i class="fa-regular fa-copy"></i> Αντιγραφή`;
+                    copyCodeBtn.innerHTML = `<i class="fa-regular fa-copy"></i> Copy Code`;
                 }, 2000);
             });
         });
