@@ -4,6 +4,7 @@ const modulesData = {
         title: "Data Preprocessing & Cleaning",
         theory: "Η προετοιμασία δεδομένων είναι το πρώτο και πιο κρίσιμο βήμα. Περιλαμβάνει τη διαχείριση ελλιπών τιμών (nulls), την αφαίρεση διπλότυπων εγγραφών, τη διόρθωση λαθών στους τύπους δεδομένων και το φιλτράρισμα ακραίων τιμών (outliers). Χωρίς καθαρά δεδομένα, οποιοδήποτε μοντέλο AI θα παράγει λανθασμένα αποτελέσματα (Garbage In, Garbage Out).",
         analystAi: "Ο Data Analyst χρησιμοποιεί βιβλιοθήκες όπως η Pandas για να καθαρίσει δεδομένα. Το AI (όπως ο Claude) μπορεί να αυτοματοποιήσει αυτή τη διαδικασία αναγνωρίζοντας μοτίβα ελλιπών τιμών, προτείνοντας έξυπνες μεθόδους συμπλήρωσης (imputation) και γράφοντας έτοιμο κώδικα καθαρισμού.",
+        realWorldExample: "Κατά την εγγραφή πελατών σε μια φόρμα, η πόλη μπορεί να γραφτεί ως 'Athens', 'athens', 'ΑΘΗΝΑ' ή 'Athns'. Το Data Preprocessing θα καθαρίσει και θα ομογενοποιήσει αυτές τις εγγραφές ώστε να μετρηθούν σωστά ως μία ενιαία πόλη.",
         code: `# Data Cleaning Example with Pandas
 import pandas as pd
 import numpy as np
@@ -49,6 +50,7 @@ print("Cleaned DataFrame shape:", df.shape)`,
         title: "EDA (Exploratory Data Analysis)",
         theory: "Η διερευνητική ανάλυση δεδομένων (EDA) είναι η διαδικασία κατά την οποία ο αναλυτής 'ακούει' τα δεδομένα. Χρησιμοποιεί περιγραφική στατιστική (μέσος όρος, διάμεσος, τυπική απόκλιση) και γραφήματα για να κατανοήσει την κατανομή των τιμών, να εντοπίσει ανωμαλίες και να βρει κρυμμένες συσχετίσεις μεταξύ των μεταβλητών.",
         analystAi: "Ο Data Analyst σχεδιάζει τη στρατηγική EDA για να απαντήσει σε επιχειρηματικά ερωτήματα. Το AI βοηθάει ερμηνεύοντας άμεσα τις στατιστικές κατανομές και προτείνοντας ποιες συσχετίσεις αξίζει να διερευνηθούν περαιτέρω.",
+        realWorldExample: "Μια αλυσίδα καφέ αναλύει τις μηνιαίες πωλήσεις της και ανακαλύπτει ότι οι πωλήσεις κρύου καφέ εκτοξεύονται τον Ιούλιο, ενώ η ζεστή σοκολάτα κορυφώνεται τον Δεκέμβριο. Αυτό τους επιτρέπει να προσαρμόσουν το στοκ τους.",
         code: `# Descriptive Statistics & Correlations with Pandas
 import pandas as pd
 
@@ -92,6 +94,7 @@ print(correlations)`,
         title: "Στατιστική για Data Science",
         theory: "Η στατιστική παρέχει τα μαθηματικά θεμέλια για τη λήψη αποφάσεων. Περιλαμβάνει τον έλεγχο υποθέσεων (hypothesis testing), τον υπολογισμό των p-values για να δούμε αν ένα εύρημα είναι στατιστικά σημαντικό και την κατανόηση των κατανομών (π.χ. κανονική κατανομή).",
         analystAi: "Οι Data Analysts χρησιμοποιούν στατιστικούς ελέγχους (π.χ. t-test, chi-square) για A/B testing. Το AI βοηθάει εξηγώντας περίπλοκες στατιστικές έννοιες και προτείνοντας τον κατάλληλο έλεγχο ανάλογα με τον τύπο των δεδομένων.",
+        realWorldExample: "Θέλουμε να δούμε αν η αλλαγή του κουμπιού αγοράς από Μπλε σε Πράσινο αύξησε πράγματι τις πωλήσεις ή αν ήταν απλή σύμπτωση. Με ένα t-test υπολογίζουμε το p-value για να επιβεβαιώσουμε τη στατιστική σημαντικότητα.",
         code: `# Hypothesis Testing (T-Test) Example with SciPy
 import numpy as np
 from scipy import stats
@@ -135,6 +138,7 @@ else:
         title: "Data Visualization",
         theory: "Η οπτικοποίηση μετατρέπει τους ξερούς αριθμούς σε ιστορίες. Με εργαλεία όπως η Matplotlib και η Seaborn, σχεδιάζουμε scatter plots για συσχετίσεις, bar charts για συγκρίσεις κατηγοριών και correlation heatmaps για εύρεση γραμμικών σχέσεων.",
         analystAi: "Ο Data Analyst σχεδιάζει καθαρά διαγράμματα για να επικοινωνήσει insights στους stakeholders. Το AI βοηθάει γράφοντας γρήγορα κώδικα μορφοποίησης (formatting) και προτείνοντας χρωματικές παλέτες υψηλής αντίθεσης.",
+        realWorldExample: "Ένα line chart (διάγραμμα γραμμής) δείχνει την εξέλιξη της τιμής της μετοχής της Apple τα τελευταία 10 χρόνια, επιτρέποντας στους επενδυτές να δουν αμέσως τη μακροπρόθεσμη ανοδική τάση.",
         code: `# Data Visualization with Seaborn
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -181,6 +185,7 @@ plt.close()`,
         title: "Feature Engineering",
         theory: "Το Feature Engineering περιλαμβάνει τη δημιουργία νέων μεταβλητών ή τον μετασχηματισμό των υπαρχουσών για να βοηθηθεί ο αλγόριθμος ML. Παραδείγματα: One-Hot Encoding (για κατηγορικές μεταβλητές), MinMax Scaling (για κανονικοποίηση τιμών) και PCA (για μείωση διαστάσεων).",
         analystAi: "Ο Data Analyst επιλέγει τις κατάλληλες μεταβλητές βάσει business logic. Το AI βοηθάει προτείνοντας μαθηματικούς μετασχηματισμούς (π.χ. log transformation για skewed distributions) και γράφοντας κώδικα scikit-learn.",
+        realWorldExample: "Μετατρέπουμε μια ημερομηνία '2026-06-28' στη μεταβλητή 'Ημέρα: Κυριακή' και 'Τύπος: Σαββατοκύριακο', επειδή οι αγορές των καταναλωτών τις Κυριακές διαφέρουν σημαντικά από τις καθημερινές.",
         code: `# Encoding and Scaling with Scikit-Learn
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
@@ -226,7 +231,8 @@ print(city_encoded)`,
     "sql-pandas": {
         title: "SQL & Pandas Integration",
         theory: "Η SQL είναι η γλώσσα των βάσεων δεδομένων και η Pandas είναι η γλώσσα της ανάλυσης στη μνήμη. Ο συνδυασμός τους επιτρέπει το φιλτράρισμα, τις ομαδοποιήσεις (groupby), τις συνενώσεις (merges/joins) και τη χρήση παραθυρικών συναρτήσεων (window functions) σε εκατομμύρια γραμμές δεδομένων.",
-        analystAi: "Ο Data Analyst συνδυάζει SQL για την άντληση και Pandas για τον μετασχηματισμό. Το AI μπορεί να μεταφράσει άμεσα ερωτήματα φυσικής γλώσσας σε πολύπλοκα SQL Queries με CTEs ή σε Pandas κώδικα.",
+        analystAi: "Ο Data Analyst συνδυάζει SQL για την άντληση και Pandas για τον μετασχηματισμό. Το AI μπορεί να μεταφράσει άμεσα ερωτήματα φυσικής γλώσσας σε πολύπλοκα SQL Queries με CTEς ή σε Pandas κώδικα.",
+        realWorldExample: "Συνδέουμε τον πίνακα 'Παραγγελίες' με τον πίνακα 'Πελάτες' για να βρούμε ποιοι πελάτες έχουν πραγματοποιήσει αγορές άνω των €500 συνολικά τον τελευταίο μήνα.",
         code: `# SQL & Pandas Merge and Aggregate Example
 import pandas as pd
 import sqlite3
@@ -274,6 +280,7 @@ conn.close()`,
         title: "Credit Risk ML Project",
         theory: "Ένα κλασικό portfolio project για Data Scientists. Σκοπός είναι η πρόβλεψη της πιθανότητας αθέτησης πληρωμής ενός δανείου (Credit Default). Χρησιμοποιεί αλγορίθμους classification όπως Logistic Regression, Random Forest ή XGBoost.",
         analystAi: "Ο Analyst αξιολογεί τις επιχειρηματικές επιπτώσεις (π.χ. μείωση ζημιών). Το AI βοηθάει προτείνοντας μεθόδους για την αντιμετώπιση της ανισορροπίας των κλάσεων (class imbalance) και βελτιστοποιώντας τις υπερπαραμέτρους.",
+        realWorldExample: "Μια τράπεζα χρησιμοποιεί ένα μοντέλο Random Forest για να αποφασίσει αυτόματα αν θα εγκρίνει ή θα απορρίψει μια αίτηση πιστωτικής κάρτας, υπολογίζοντας το ρίσκο αθέτησης.",
         code: `# Binary Classification with Random Forest
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -316,6 +323,7 @@ print(classification_report(y_test, preds))`,
         title: "Email Targeting & Segmentation",
         theory: "Ένα data-driven project μάρκετινγκ. Χρησιμοποιεί τη μεθοδολογία RFM (Recency, Frequency, Monetary) για να βαθμολογήσει τους πελάτες και τον αλγόριθμο K-Means Clustering για να τους ομαδοποιήσει σε clusters (π.χ. VIPs, Χαμένοι, Ευκαιριακοί).",
         analystAi: "Ο Data Analyst αναλύει τα clusters για να προτείνει καμπάνιες email. Το AI βοηθάει δημιουργώντας προσωποποιημένα κείμενα (email copies) προσαρμοσμένα στις ανάγκες του κάθε cluster πελατών.",
+        realWorldExample: "Η Sephora ομαδοποιεί τους πελάτες της. Στο cluster 'VIPs' (αγοράζουν συχνά) στέλνει δωρεάν δείγματα, ενώ στο cluster 'Χαμένοι' (έχουν 6 μήνες να αγοράσουν) στέλνει εκπτωτικό κουπόνι 20% για επαναφορά.",
         code: `# K-Means Clustering for Customer Segmentation
 from sklearn.cluster import KMeans
 import pandas as pd
@@ -355,8 +363,9 @@ print(df_customers.groupby('Cluster').mean())`,
     },
     "time-series": {
         title: "Time Series Analysis",
-        theory: "Η ανάλυση χρονοσειρών (Time Series) μελετά δεδομένα που έχουν καταγραφεί σε διαδοχικές χρονικές στιγμές (π.χ. ημερήσιες πωλήσεις). Χρησιμοποιεί μοντέλα όπως το ARIMA ή το Prophet της Meta για την πρόβλεψη μελλοντικών τιμών (forecasting) λαμβάνοντας υπόψη την εποχικότητα (seasonality) και την τάση (trend).",
+        theory: "Η ανάλυση χρονοσειρών (Time Series) μελετά δεδομένα που έχουν καταγραφεί σε διαδοχικές χρονικές στιγμές (π.χ. ημερήσιες πωλήσεις). Χρησιμοποιεί μοντέλα όπως το ARIMA ή το Prophet της Meta για την πρόβλεψη μελλοντικών τίμών (forecasting) λαμβάνοντας υπόψη την εποχικότητα (seasonality) και την τάση (trend).",
         analystAi: "Ο Analyst χρησιμοποιεί το forecasting για προϋπολογισμούς και αποθέματα. Το AI βοηθάει στην ανίχνευση ξαφνικών αλλαγών στην τάση (trend shifts) και στη σύνταξη επεξηγήσεων για τις προβλέψεις.",
+        realWorldExample: "Ο ΔΕΔΔΗΕ (ή πάροχος ενέργειας) προβλέπει τη ζήτηση ηλεκτρικού ρεύματος για την επόμενη εβδομάδα βάσει ιστορικών στοιχείων και καιρού, ώστε να ρυθμίσει την παραγωγή και να αποφύγει blackout.",
         code: `# Simple Forecasting with Statsmodels (ARIMA)
 import pandas as pd
 import numpy as np
@@ -398,6 +407,7 @@ print("Forecasted Sales for next 3 months:", forecast)`,
         title: "NLP (Natural Language Processing)",
         theory: "Η επεξεργασία φυσικής γλώσσας (NLP) επιτρέπει στους υπολογιστές να κατανοούν το γραπτό κείμενο. Περιλαμβάνει εργασίες όπως Sentiment Analysis (ανάλυση συναισθήματος), Text Classification και τη χρήση προεκπαιδευμένων μοντέλων Transformer (όπως το BERT) για σημασιολογική κατανόηση.",
         analystAi: "Ο Data Analyst αναλύει κριτικές πελατών ή tweets. Το AI (LLM) είναι το ίδιο ένα προϊόν NLP, οπότε μπορεί να χρησιμοποιηθεί για να ταξινομήσει αυτόματα χιλιάδες κριτήρια με μηδενικό κώδικα (Zero-shot classification).",
+        realWorldExample: "Η Booking.com αναλύει αυτόματα χιλιάδες σχόλια ξενοδοχείων και τα κατηγοριοποιεί σε 'Θετικά' ή 'Αρνητικά' για να βαθμολογήσει την καθαριότητα, την τοποθεσία και το προσωπικό.",
         code: `# Sentiment Analysis using Hugging Face Transformers
 from transformers import pipeline
 
@@ -439,6 +449,7 @@ except Exception as e:
         title: "Deep Learning (Βαθιά Μάθηση)",
         theory: "Η Βαθιά Μάθηση (Deep Learning) είναι υποκατηγορία του ML που χρησιμοποιεί Πολυεπίπεδα Νευρωνικά Δίκτυα (Artificial Neural Networks). Χρησιμοποιεί βιβλιοθήκες όπως η PyTorch ή η Keras/TensorFlow. Είναι ιδανική για μη δομημένα δεδομένα (unstructured data) όπως εικόνες (CNNs) και ήχο.",
         analystAi: "Οι Data Scientists χρησιμοποιούν Deep Learning για Computer Vision ή περίπλοκες προβλέψεις. Το AI βοηθάει γράφοντας την αρχιτεκτονική του δικτύου (layers) και προτείνοντας βέλτιστους optimizers (π.χ. Adam).",
+        realWorldExample: "Η λειτουργία FaceID της Apple που ξεκλειδώνει το iPhone, ή η αυτόματη αναγνώριση πινακίδων κυκλοφορίας και πεζών από τα αυτοκίνητα Tesla (Self-driving).",
         code: `# Simple Neural Network with Keras
 import numpy as np
 try:
@@ -481,6 +492,7 @@ except ImportError:
         title: "Model Deployment & MLOps",
         theory: "Η εκπαίδευση ενός μοντέλου είναι μόνο η αρχή. Model Deployment σημαίνει να κάνουμε το μοντέλο προσβάσιμο σε άλλες εφαρμογές. Συνήθως το 'πακετάρουμε' σε ένα API (χρησιμοποιώντας FastAPI) και το τρέχουμε μέσα σε ένα Docker container για φορητότητα.",
         analystAi: "Ο Data Analyst συνδέει BI εργαλεία (Tableau/PowerBI) με το API του μοντέλου. Το AI βοηθάει γράφοντας τα Dockerfiles, τις ρυθμίσεις του server και δημιουργώντας Web Apps (π.χ. με Streamlit) για παρουσίαση.",
+        realWorldExample: "Φτιάχνουμε μια ιστοσελίδα όπου ο χρήστης εισάγει τις ώρες μελέτης του και παίρνει ακαριαία την πρόβλεψη του βαθμού του, χάρη σε ένα API που 'τρέχει' το μοντέλο στο background.",
         code: `# Deploying a Model API with FastAPI
 # Run with: uvicorn main:app --reload
 try:
@@ -528,6 +540,7 @@ except ImportError:
         title: "Model Evaluation & Tuning",
         theory: "Η αξιολόγηση περιλαμβάνει τον έλεγχο της ικανότητας γενίκευσης του μοντέλου. Χρησιμοποιούμε Cross-Validation για αποφυγή overfitting, το Hyperparameter Tuning (μέσω Optuna ή GridSearchCV) για εύρεση βέλτιστων παραμέτρων και το SHAP για ερμηνευσιμότητα (Explainable AI).",
         analystAi: "Ο Data Analyst εξηγεί γιατί το μοντέλο πήρε μια απόφαση (χρησιμοποιώντας SHAP values). Το AI βοηθάει προτείνοντας στρατηγικές βελτιστοποίησης (tuning spaces) και εξηγώντας τη σημασία των feature importances.",
+        realWorldExample: "Για ένα φίλτρο Spam emails, αξιολογούμε πόσα κανονικά emails μπλόκαρε κατά λάθος (False Positives) σε σχέση με το πόσα spam άφησε να περάσουν, για να ρυθμίσουμε την ευαισθησία του.",
         code: `# Hyperparameter Tuning with GridSearchCV
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
@@ -572,6 +585,7 @@ print("Best Cross-Validation Score:", grid_search.best_score_)`,
         title: "Business Intelligence & A/B Testing",
         theory: "Η Επιχειρηματική Ευφυΐα (BI) συνδέει τα δεδομένα με τη λήψη αποφάσεων. Περιλαμβάνει τη δημιουργία KPIs, διαδραστικών dashboards (Tableau, PowerBI, Streamlit) και το σχεδιασμό πειραμάτων A/B Testing για τη μέτρηση της επίδρασης μιας αλλαγής.",
         analystAi: "Ο Data Analyst είναι ο συνδετικός κρίκος BI και διοίκησης. Το AI βοηθάει γράφοντας SQL queries για dashboards και αναλύοντας τα αποτελέσματα των A/B tests για να γράψει executive summaries.",
+        realWorldExample: "Η efood δείχνει σε 50% των χρηστών ένα κόκκινο κουμπί 'Παράγγειλε' και στο άλλο 50% ένα πράσινο κουμπί (A/B Test). Μετά από μία εβδομάδα, ο αναλυτής μετράει ποιο κουμπί έφερε τις περισσότερες παραγγελίες.",
         code: `# A/B Test Significance Calculation
 import numpy as np
 from statsmodels.stats.proportion import proportions_ztest
@@ -617,6 +631,7 @@ else:
         title: "Recommender Systems",
         theory: "Τα συστήματα συστάσεων (Recommender Systems) προτείνουν προϊόντα ή περιεχόμενο στους χρήστες (όπως το Netflix ή το Amazon). Χρησιμοποιούν μεθόδους όπως Collaborative Filtering (συνεργατικό φιλτράρισμα βάσει κοινών προτιμήσεων χρηστών) και Content-Based Filtering.",
         analystAi: "Ο Analyst μετράει το Conversion Rate των προτάσεων. Το AI βοηθάει δημιουργώντας embeddings (διανύσματα) χρηστών και προϊόντων για να υπολογίσει τη σημασιολογική ομοιότητα σε δισεκατομμύρια εγγραφές.",
+        realWorldExample: "Το YouTube προτείνει το επόμενο βίντεο στην αρχική σας σελίδα αναλύοντας τι βίντεο είδαν άλλοι χρήστες που έχουν παρόμοιο ιστορικό προβολών με εσάς (Collaborative Filtering).",
         code: `# Collaborative Filtering Concept (Cosine Similarity)
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
@@ -657,6 +672,7 @@ print(f"Similarity User 1 & User 3: {sim_1_3:.4f} (Χαμηλή)")`,
         title: "Anomaly Detection",
         theory: "Η ανίχνευση ανωμαλιών (Anomaly Detection) εντοπίζει μοτίβα που αποκλίνουν σημαντικά από τη φυσιολογική συμπεριφορά. Χρησιμοποιείται κυρίως για ανίχνευση απάτης (Fraud Detection) σε τραπεζικές συναλλαγές, χρησιμοποιώντας αλγορίθμους όπως το Isolation Forest.",
         analystAi: "Ο Data Analyst αναλύει τα ψευδώς θετικά αποτελέσματα (false positives) για να μειώσει την ενόχληση των πελατών. Το AI βοηθάει ανιχνεύοντας σε πραγματικό χρόνο περίπλοκες, μεταβαλλόμενες τακτικές απάτης.",
+        realWorldExample: "Η Revolut (ή μια τράπεζα) μπλοκάρει ακαριαία την πιστωτική σας κάρτα επειδή πραγματοποιήθηκε μια αγορά €1.000 στη Νέα Υόρκη, μόλις 5 λεπτά μετά από μια αγορά σας σε καφετέρια στην Αθήνα.",
         code: `# Anomaly Detection with Isolation Forest
 from sklearn.ensemble import IsolationForest
 import numpy as np
@@ -704,6 +720,7 @@ const closeDrawerBtn = document.getElementById("close-drawer-btn");
 const drawerTitle = document.getElementById("drawer-title");
 const theoryDesc = document.getElementById("theory-desc");
 const analystAiDesc = document.getElementById("analyst-ai-desc");
+const realWorldExampleDesc = document.getElementById("real-world-example-desc");
 const codeBlock = document.getElementById("code-block");
 const copyCodeBtn = document.getElementById("copy-code-btn");
 
@@ -735,6 +752,7 @@ function openDrawer(moduleKey) {
     drawerTitle.innerText = data.title;
     theoryDesc.innerText = data.theory;
     analystAiDesc.innerText = data.analystAi;
+    realWorldExampleDesc.innerText = data.realWorldExample;
     codeBlock.innerText = data.code;
 
     // Render Quiz
