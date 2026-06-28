@@ -1,4 +1,5 @@
 // Database containing details, code, and quizzes for all 16 curriculum modules (English Edition)
+// Upgraded: Quizzes feature 3-4 advanced technical questions per module.
 const modulesData = {
     "preprocessing": {
         title: "Data Preprocessing & Cleaning",
@@ -27,22 +28,40 @@ df = df.drop_duplicates()
 print("Cleaned DataFrame shape:", df.shape)`,
         quiz: [
             {
-                q: "What does the phrase 'Garbage In, Garbage Out' mean in Data Science?",
+                q: "If a column 'Salary' has a heavily right-skewed distribution with major outliers, which imputation method is mathematically most robust?",
                 options: [
-                    "If the input data is of poor quality, the model's outputs will also be incorrect.",
-                    "AI models automatically delete useless data upon loading.",
-                    "Data cleaning should only be performed at the very end of a project."
-                ],
-                correct: 0
-            },
-            {
-                q: "Which Pandas method is commonly used to fill missing values with a default value or median?",
-                options: [
-                    "df.dropna()",
-                    "df.fillna()",
-                    "df.drop_duplicates()"
+                    "Mean imputation - because it considers all values in the dataset.",
+                    "Median imputation - because it is a positional statistic unaffected by extreme outliers.",
+                    "Mode imputation - because it represents the salary most employees receive."
                 ],
                 correct: 1
+            },
+            {
+                q: "What is the technical danger of applying One-Hot Encoding on a column like 'ZIP Code' with 5,000 unique values?",
+                options: [
+                    "It will cause severe underfitting because the model cannot read numeric zip codes.",
+                    "It triggers the 'Curse of Dimensionality' by creating 5,000 sparse columns, drastically increasing memory and training time.",
+                    "It automatically deletes rows containing null values in that column."
+                ],
+                correct: 1
+            },
+            {
+                q: "Which Pandas code snippet removes rows where the target label 'Purchased' is null, while keeping nulls in other columns?",
+                options: [
+                    "df.dropna()",
+                    "df.dropna(subset=['Purchased'])",
+                    "df['Purchased'].fillna(method='ffill')"
+                ],
+                correct: 1
+            },
+            {
+                q: "What is the difference between normalization (MinMax scaling) and standardization (Standard scaling)?",
+                options: [
+                    "Normalization scales features to a [0, 1] range; standardization scales features to have a mean of 0 and a standard deviation of 1.",
+                    "Standardization scales features to a [0, 1] range; normalization scales features to have a mean of 0 and a standard deviation of 1.",
+                    "They are mathematically identical and yield the exact same scaling results."
+                ],
+                correct: 0
             }
         ]
     },
@@ -71,22 +90,31 @@ print("\nCorrelation Matrix:")
 print(correlations)`,
         quiz: [
             {
-                q: "What is the primary benefit of performing Exploratory Data Analysis (EDA)?",
+                q: "If a distribution has a mean of 85 and a median of 60, what can you mathematically infer about its skewness?",
                 options: [
-                    "To automatically train deep learning neural networks.",
-                    "To understand the structure, distributions, and correlations in the data prior to modeling.",
-                    "To store datasets inside SQL databases."
+                    "It is symmetric (normal distribution).",
+                    "It is right-skewed (positively skewed) because the mean is pulled higher by extreme right-tail values.",
+                    "It is left-skewed (negatively skewed) because the median is lower."
                 ],
                 correct: 1
             },
             {
-                q: "Which Pandas method returns count, mean, standard deviation, and quartiles of numeric columns?",
+                q: "What does a Pearson correlation coefficient of -0.89 between variables X and Y indicate?",
                 options: [
-                    "df.info()",
-                    "df.head()",
-                    "df.describe()"
+                    "There is virtually no correlation between X and Y.",
+                    "There is a strong negative linear correlation; as X increases, Y decreases predictably.",
+                    "A computational calculation error occurred, since correlation cannot be negative."
                 ],
-                correct: 2
+                correct: 1
+            },
+            {
+                q: "Why is a box plot preferred over a simple bar chart of averages during EDA?",
+                options: [
+                    "It displays the distribution spread, median, quartiles, and identifies outliers, whereas a bar chart hides variability behind a single average.",
+                    "It runs faster in Python memory.",
+                    "It automatically trains classification models."
+                ],
+                correct: 0
             }
         ]
     },
@@ -115,20 +143,29 @@ else:
     print("No statistically significant difference detected.")`,
         quiz: [
             {
-                q: "What does it indicate when a p-value is less than 0.05?",
+                q: "In hypothesis testing, what is the Null Hypothesis (H0)?",
                 options: [
-                    "The finding is statistically significant, and we reject the null hypothesis.",
-                    "The AI model has achieved 95% classification accuracy.",
-                    "There is a severe measurement error in the input dataset."
+                    "The assumption that there is no effect, no difference, or no relationship between the groups being tested.",
+                    "The target prediction of the machine learning model.",
+                    "The assumption that our sample data contains zero outliers."
                 ],
                 correct: 0
             },
             {
-                q: "Which Python library is the standard for scientific and statistical operations (like t-tests)?",
+                q: "What is a Type I error in statistical inference?",
                 options: [
-                    "matplotlib",
-                    "SciPy",
-                    "OS"
+                    "Failing to reject the null hypothesis when it is actually false (False Negative).",
+                    "Rejecting the null hypothesis when it is actually true (False Positive).",
+                    "A runtime compilation error in the Python SciPy library."
+                ],
+                correct: 1
+            },
+            {
+                q: "What does the Central Limit Theorem (CLT) claim?",
+                options: [
+                    "The mean of any dataset must equal its median.",
+                    "As sample size increases, the sampling distribution of the mean approaches a normal distribution, regardless of the population distribution shape.",
+                    "All machine learning models eventually achieve 100% accuracy."
                 ],
                 correct: 1
             }
@@ -162,22 +199,31 @@ plt.savefig("iris_scatter.png", dpi=150)
 plt.close()`,
         quiz: [
             {
-                q: "Which chart type is best suited to visualize the relationship and correlation between two numerical columns?",
+                q: "To visualize the correlation matrix of 10 numeric features, which chart type is most appropriate?",
                 options: [
-                    "Bar Chart",
-                    "Scatter Plot",
-                    "Pie Chart"
+                    "A grouped bar chart.",
+                    "A Seaborn heatmap with annotated correlation coefficients.",
+                    "A line chart showing cumulative features."
                 ],
                 correct: 1
             },
             {
-                q: "Which Python visualization library has a built-in heatmap() function?",
+                q: "What is the difference between Matplotlib and Seaborn?",
                 options: [
-                    "Seaborn",
-                    "Pandas",
-                    "SQL"
+                    "Matplotlib is a low-level plotting library; Seaborn is built on top of Matplotlib, providing a high-level interface and superior default aesthetics.",
+                    "Seaborn runs on GPUs; Matplotlib runs on CPUs.",
+                    "Matplotlib is only for SQL; Seaborn is only for CSVs."
                 ],
                 correct: 0
+            },
+            {
+                q: "Which Seaborn function is best to display pairwise bivariate distributions across all numerical variables in a DataFrame at once?",
+                options: [
+                    "sns.jointplot()",
+                    "sns.pairplot()",
+                    "sns.barplot()"
+                ],
+                correct: 1
             }
         ]
     },
@@ -209,20 +255,29 @@ print("\nEncoded Cities:")
 print(city_encoded)`,
         quiz: [
             {
-                q: "What is the purpose of One-Hot Encoding?",
+                q: "Why is feature scaling (like StandardScaler) essential prior to running algorithms like K-Means or Support Vector Machines (SVM)?",
                 options: [
-                    "To convert categorical columns into binary columns (0s and 1s) for compatibility with ML models.",
-                    "To normalize numeric data between 0 and 1.",
-                    "To delete rows with missing values from a DataFrame."
+                    "Because these algorithms use distance metrics (like Euclidean distance); features on larger scales would otherwise dominate the model calculations.",
+                    "Because scaling reduces the number of columns in the dataset.",
+                    "To prevent underfitting on categorical labels."
                 ],
                 correct: 0
             },
             {
-                q: "Why do we use StandardScaler?",
+                q: "What is the primary objective of Principal Component Analysis (PCA)?",
                 options: [
-                    "To remove duplicate entries from our dataset.",
-                    "To scale numeric variables so they have a mean of 0 and a standard deviation of 1.",
-                    "To connect our Python script to a remote SQL database."
+                    "To target and encode text variables into numeric integers.",
+                    "To reduce dataset dimensionality (number of columns) while retaining as much variance as possible.",
+                    "To calculate the p-value of regression coefficients."
+                ],
+                correct: 1
+            },
+            {
+                q: "What danger does target leakage present during feature engineering?",
+                options: [
+                    "It causes the dataset to double in size.",
+                    "It occurs when features include information from the target variable that would not be available at prediction time, causing overfitting.",
+                    "It leads to memory leaks in pandas data frames."
                 ],
                 correct: 1
             }
@@ -257,22 +312,31 @@ print(result)
 conn.close()`,
         quiz: [
             {
-                q: "Which SQL clause is used to combine columns from two tables based on a matching key column?",
+                q: "Which SQL join type returns all records from the left table, and matching records from the right table?",
                 options: [
-                    "GROUP BY",
-                    "JOIN",
-                    "ORDER BY"
+                    "INNER JOIN",
+                    "LEFT JOIN (or LEFT OUTER JOIN)",
+                    "FULL JOIN"
                 ],
                 correct: 1
             },
             {
-                q: "Which Pandas function behaves equivalently to an SQL JOIN?",
+                q: "Which Pandas function is mathematically equivalent to an SQL window function (e.g. partition by and aggregate)?",
                 options: [
-                    "pd.concat()",
-                    "df.groupby()",
-                    "pd.merge()"
+                    "df.groupby().transform()",
+                    "df.merge()",
+                    "df.pivot_table()"
                 ],
-                correct: 2
+                correct: 0
+            },
+            {
+                q: "What is a Common Table Expression (CTE) in SQL?",
+                options: [
+                    "A temporary result set defined using a 'WITH' clause that makes queries more readable and modular.",
+                    "An SQL command used to drop database schemas.",
+                    "A tool for creating unique primary keys."
+                ],
+                correct: 0
             }
         ]
     },
@@ -300,22 +364,31 @@ preds = model.predict(X_test)
 print(classification_report(y_test, preds))`,
         quiz: [
             {
-                q: "Which metric is most crucial in an imbalanced Credit Risk project where default occurrences are rare?",
+                q: "Why is accuracy a deceptive metric in credit default prediction where only 1% of applicants default?",
                 options: [
-                    "Accuracy - because it shows the overall correct prediction rate.",
-                    "F1-Score / Recall for the Default class - to avoid missing high-risk borrowers.",
-                    "Mean Squared Error (MSE)."
+                    "Because default cases cannot be predicted by numeric algorithms.",
+                    "Because a dummy model predicting 'Non-Default' for everyone achieves 99% accuracy while failing to detect any defaults.",
+                    "Because accuracy calculations are unstable in scikit-learn."
                 ],
                 correct: 1
             },
             {
-                q: "Which algorithm is suitable for Credit Risk binary classification tasks?",
+                q: "What does the Recall (Sensitivity) metric represent in Credit Risk classification?",
                 options: [
-                    "K-Means",
-                    "XGBoost Classifier",
-                    "Linear Regression"
+                    "The proportion of actual defaulters that the model successfully identified.",
+                    "The proportion of predicted defaults that were actually real defaults.",
+                    "The speed at which the model makes prediction calls."
                 ],
-                correct: 1
+                correct: 0
+            },
+            {
+                q: "How does the SMOTE technique handle class imbalance in credit default datasets?",
+                options: [
+                    "By generating synthetic examples of the minority class (defaulters) to balance class distributions.",
+                    "By deleting majority class records until classes are equal.",
+                    "By adjusting model hyperparameters to penalize errors."
+                ],
+                correct: 0
             }
         ]
     },
@@ -342,20 +415,29 @@ df_customers['Cluster'] = clusters
 print(df_customers.groupby('Cluster').mean())`,
         quiz: [
             {
-                q: "What do the RFM metrics stand for in Customer Segmentation?",
+                q: "How is the optimal number of clusters (K) determined mathematically in K-Means?",
                 options: [
-                    "Random, Forest, Model",
-                    "Recency, Frequency, Monetary Value",
-                    "Rate, Fraction, Median"
+                    "By selecting K = number of features.",
+                    "Using the Elbow Method or Silhouette Score to evaluate cluster cohesion vs. separation.",
+                    "By dividing dataset rows by 100."
                 ],
                 correct: 1
             },
             {
-                q: "Which machine learning category does K-Means Clustering belong to?",
+                q: "Which distance metric is typically minimized inside the K-Means clustering algorithm?",
                 options: [
-                    "Supervised Learning",
-                    "Unsupervised Learning",
-                    "Reinforcement Learning"
+                    "Manhattan Distance",
+                    "Euclidean Distance (Sum of Squared Errors)",
+                    "Cosine Distance"
+                ],
+                correct: 1
+            },
+            {
+                q: "Why is RFM segmentation a popular choice for customer retention programs?",
+                options: [
+                    "It calculates exact future purchases.",
+                    "It segment users based on transaction history (Recency, Frequency, Monetary) which directly reflects loyalty and lifetime value.",
+                    "It automatically sends emails without human setup."
                 ],
                 correct: 1
             }
@@ -384,20 +466,29 @@ forecast = model_fit.forecast(steps=3)
 print("Forecasted Sales for next 3 months:", forecast)`,
         quiz: [
             {
-                q: "What is seasonality in time series data?",
+                q: "What does 'stationarity' mean in Time Series, and why is it required by models like ARIMA?",
                 options: [
-                    "The long-term upward or downward direction of data points.",
-                    "Repetitive, predictable fluctuations that occur at specific intervals (e.g., peak retail sales every December).",
-                    "Random, unexplained noise in data measurements."
+                    "It means values do not change over time.",
+                    "It means statistical properties (mean, variance, covariance) are constant over time; models require this to make stable future projections.",
+                    "It means the data has 100% linear correlation."
                 ],
                 correct: 1
             },
             {
-                q: "Which popular forecasting tool was open-sourced by Meta (Facebook)?",
+                q: "What do the components (p, d, q) represent in an ARIMA(p, d, q) model parameter setting?",
                 options: [
-                    "TensorFlow",
-                    "Prophet",
-                    "Pandas"
+                    "Predictors, Decisions, Queries",
+                    "Autoregressive terms (p), Differencing degree (d), and Moving Average terms (q).",
+                    "Probability, Deviation, Quantity"
+                ],
+                correct: 1
+            },
+            {
+                q: "How does Facebook (Meta) Prophet handle missing timestamps or holiday effects in time series?",
+                options: [
+                    "It crashes and returns a compilation exception.",
+                    "It treats forecasting as an additive regression task, letting users plug in custom holiday parameters and handle irregular intervals natively.",
+                    "It interpolates values using standard median scaling."
                 ],
                 correct: 1
             }
@@ -426,20 +517,29 @@ except Exception as e:
     print("Please install transformers and pytorch/tensorflow to run. Error:", e)`,
         quiz: [
             {
-                q: "What is Sentiment Analysis?",
+                q: "What is the Self-Attention mechanism in Transformer models?",
                 options: [
-                    "The process of translating text into a different language.",
-                    "Identifying and classifying the emotional tone of text (e.g. positive, negative, neutral).",
-                    "Converting spoken voice audio files into text."
+                    "A technique that allows the model to calculate connections between all words in a sentence, establishing context regardless of distance.",
+                    "An optimizer used to speed up GPU backpropagation.",
+                    "A preprocessing script that tokenizes text files."
+                ],
+                correct: 0
+            },
+            {
+                q: "What represents the 'Tokenization' phase in natural language processing?",
+                options: [
+                    "Encrypted security key validation.",
+                    "Splitting raw text sentences into smaller units like words, subwords, or characters (tokens) that can be mapped to numbers.",
+                    "Calculating the TF-IDF score of a text document."
                 ],
                 correct: 1
             },
             {
-                q: "Which deep learning architecture revolutionized NLP and forms the foundation of modern LLMs?",
+                q: "How does TF-IDF score words in a document corpus?",
                 options: [
-                    "Convolutional Neural Networks (CNN)",
-                    "Transformers",
-                    "Linear Regression"
+                    "By counting all words equally.",
+                    "By penalizing common words (like 'the', 'is') and rewarding rare words that are specific to a document.",
+                    "Using a deep neural network backpropagation gradient."
                 ],
                 correct: 1
             }
@@ -469,20 +569,29 @@ except ImportError:
     print("Please install tensorflow to run this code snippet.")`,
         quiz: [
             {
-                q: "Which type of Neural Network is specifically suited for image processing (Computer Vision)?",
+                q: "Why is the Backpropagation algorithm essential in neural network training?",
                 options: [
-                    "Recurrent Neural Networks (RNN)",
-                    "Convolutional Neural Networks (CNN)",
-                    "Simple Linear Perceptron"
+                    "It calculates loss function gradients with respect to weights and biases, updating parameters backward to minimize predictions error.",
+                    "It rescales dataset values prior to loading them.",
+                    "It maps categories to one-hot columns."
+                ],
+                correct: 0
+            },
+            {
+                q: "Why is the ReLU activation function commonly preferred over Sigmoid in deep hidden layers?",
+                options: [
+                    "Sigmoid is too slow to compute.",
+                    "ReLU helps mitigate the 'vanishing gradient problem' because its derivative is 1 for positive values, preventing gradients from shrinking.",
+                    "ReLU normalizes outputs to a [0, 1] range."
                 ],
                 correct: 1
             },
             {
-                q: "What is a main difference between Deep Learning and classical Machine Learning?",
+                q: "Which optimizer combines adaptive learning rates for each parameter with momentum tracking?",
                 options: [
-                    "Deep Learning does not require any data preprocessing.",
-                    "Deep Learning utilizes deep neural architectures and can perform feature extraction automatically from unstructured data.",
-                    "Deep Learning only runs inside SQL databases."
+                    "Stochastic Gradient Descent (SGD)",
+                    "Adam Optimizer",
+                    "Mean Squared Error"
                 ],
                 correct: 1
             }
@@ -517,22 +626,31 @@ except ImportError:
     print("Please install fastapi and uvicorn to deploy this API.")`,
         quiz: [
             {
-                q: "What is FastAPI?",
+                q: "What does the Uvicorn package do when deploying a Python FastAPI application?",
                 options: [
-                    "An SQL relational database server.",
-                    "A modern, high-performance web framework for building APIs in Python.",
-                    "A classification algorithm."
+                    "It translates python commands to SQL.",
+                    "It is an ASGI web server implementation that runs and serves the FastAPI application.",
+                    "It compiles the scikit-learn model parameters."
                 ],
                 correct: 1
             },
             {
-                q: "What is the primary benefit of utilizing Docker in model deployment?",
+                q: "In Docker, what is the conceptual difference between an Image and a Container?",
                 options: [
-                    "It packs the app and dependencies into an isolated container to ensure it runs consistently on any OS.",
-                    "It improves the classification accuracy of our ML model.",
-                    "It automatically removes duplicate rows."
+                    "An Image is a read-only blueprint template; a Container is a live, executable instance of that image running in memory.",
+                    "An Image runs on GPUs; a Container runs on CPUs.",
+                    "There is no difference; they are synonymous terms."
                 ],
                 correct: 0
+            },
+            {
+                q: "What represents Model Drift in production deployments?",
+                options: [
+                    "The server CPU usage increasing gradually.",
+                    "The drop in model performance over time due to changes in real-world data patterns compared to training data.",
+                    "Loss of git credentials on the production server."
+                ],
+                correct: 1
             }
         ]
     },
@@ -562,22 +680,31 @@ print("Best Parameters found:", grid_search.best_params_)
 print("Best Cross-Validation Score:", grid_search.best_score_)`,
         quiz: [
             {
-                q: "What does K-Fold Cross-Validation accomplish?",
+                q: "What is the main drawback of GridSearchCV compared to RandomizedSearchCV or Optuna?",
                 options: [
-                    "It splits the dataset into K folds, trains K times, and validates generalization to prevent overfitting.",
-                    "It trains K different model architectures concurrently.",
-                    "It increases our dataset size K times."
+                    "It is computationally expensive and slow because it exhaustively evaluates every possible parameter combination in the grid.",
+                    "It yields lower accuracy scores.",
+                    "It does not support cross-validation."
                 ],
                 correct: 0
             },
             {
-                q: "Which Python library is widely used for Explainable AI (interpreting ML model decisions)?",
+                q: "What do SHAP (SHapley Additive exPlanations) values represent in Explainable AI (XAI)?",
                 options: [
-                    "SciPy",
-                    "SHAP",
-                    "Docker"
+                    "The training time variance of decision trees.",
+                    "The contribution of each individual feature to a specific model prediction, based on cooperative game theory.",
+                    "The percentage of missing values filled during cleaning."
                 ],
                 correct: 1
+            },
+            {
+                q: "What is overfitting, and how does a validation dataset help identify it?",
+                options: [
+                    "When the model performs well on training data but poorly on unseen validation data, indicating it memorized noise.",
+                    "When the model runs out of system memory.",
+                    "When the test predictions are identical to training inputs."
+                ],
+                correct: 0
             }
         ]
     },
@@ -608,22 +735,31 @@ else:
     print("No statistically significant difference detected.")`,
         quiz: [
             {
-                q: "What is the primary objective of A/B Testing?",
+                q: "What is statistical power in an A/B test setup?",
                 options: [
-                    "Training deep learning models.",
-                    "Comparing two variants (A and B) to measure statistically significant improvements in key business metrics.",
-                    "Creating database backups."
+                    "The server load handling capacity.",
+                    "The probability of correctly rejecting the null hypothesis when there is an actual difference (avoiding a Type II error).",
+                    "The average conversion rate of group B."
                 ],
                 correct: 1
             },
             {
-                q: "Which tools are the market standard for drag-and-drop BI visualizations and dashboards?",
+                q: "Why is a dashboard preferred over a static PDF report in BI?",
                 options: [
-                    "FastAPI",
-                    "Tableau / PowerBI",
-                    "SciPy"
+                    "It allows stakeholders to filter, drill-down, and explore real-time metrics dynamically.",
+                    "It has larger file sizes.",
+                    "It runs machine learning algorithms automatically."
                 ],
-                correct: 1
+                correct: 0
+            },
+            {
+                q: "How does the Minimum Detectable Effect (MDE) impact A/B test sample size calculation?",
+                options: [
+                    "A smaller MDE requires a much larger sample size to detect subtle conversion differences statistically.",
+                    "A smaller MDE requires fewer samples.",
+                    "MDE does not affect sample sizes."
+                ],
+                correct: 0
             }
         ]
     },
@@ -649,22 +785,31 @@ print(f"Similarity User 1 & User 2: {sim_1_2:.4f} (High)")
 print(f"Similarity User 1 & User 3: {sim_1_3:.4f} (Low)")`,
         quiz: [
             {
-                q: "How does Collaborative Filtering make item suggestions?",
+                q: "What does the 'Cold Start Problem' represent in Recommender Systems?",
                 options: [
-                    "By recommending items liked by other users with similar historical preference patterns.",
-                    "By presenting completely random items.",
-                    "By analyzing item properties only, ignoring other user activities."
+                    "The system freezing due to low server temperatures.",
+                    "The difficulty in making recommendations for new users or items due to a lack of historical interaction data.",
+                    "The latency delay when querying SQL databases."
+                ],
+                correct: 1
+            },
+            {
+                q: "What is Matrix Factorization (like Singular Value Decomposition - SVD) in collaborative filtering?",
+                options: [
+                    "Decomposing the sparse user-item interaction matrix into lower-dimensional matrices representing latent user preferences and item features.",
+                    "Multiplying all matrix values by a constant scale factor.",
+                    "Dropping empty rows inside a rating grid."
                 ],
                 correct: 0
             },
             {
-                q: "Which metric is commonly used to evaluate the similarity between two user rating vectors?",
+                q: "What characterizes Content-Based Filtering compared to Collaborative Filtering?",
                 options: [
-                    "Mean Absolute Error (MAE)",
-                    "Cosine Similarity",
-                    "P-value"
+                    "It relies purely on similarity between item metadata attributes (genre, description) and a user's historical profile, ignoring other users.",
+                    "It requires a neural network training loop.",
+                    "It groups users by location."
                 ],
-                correct: 1
+                correct: 0
             }
         ]
     },
@@ -690,20 +835,29 @@ preds = model.fit_predict(data) # returns -1 for anomalies, 1 for normal
 print("Detected Anomalies (indices):", np.where(preds == -1)[0])`,
         quiz: [
             {
-                q: "What is the core working principle of Isolation Forest?",
+                q: "Why is traditional supervised classification challenging for fraud anomaly detection?",
                 options: [
-                    "It isolates anomalies because they require fewer random splits to separate from normal data points.",
-                    "It trains a deep convolutional neural network.",
-                    "It computes p-values of columns."
+                    "Supervised models cannot process numerical transaction data.",
+                    "Fraud events are highly rare (imbalanced) and constantly change, making it difficult for models to generalize from labels.",
+                    "Fraud datasets cannot be imported into SQL databases."
+                ],
+                correct: 1
+            },
+            {
+                q: "How does the Isolation Forest algorithm isolate anomalous data points?",
+                options: [
+                    "By constructing random decision trees; anomalies are isolated closer to the root (shorter average path length) since they are outlying.",
+                    "By grouping anomalies into K clusters.",
+                    "By sorting data columns in descending order."
                 ],
                 correct: 0
             },
             {
-                q: "In which industry scenario is Anomaly Detection a critical feature?",
+                q: "What represents the 'contamination' parameter in scikit-learn's IsolationForest?",
                 options: [
-                    "Customer Segmentation.",
-                    "Credit Card Fraud Detection and cyber intrusion monitoring.",
-                    "Exporting standard Excel sheets."
+                    "The percentage of memory leaks in the running container.",
+                    "The expected proportion of outliers/anomalies in the dataset, which sets the threshold for anomaly classification.",
+                    "The database connection timeout limit."
                 ],
                 correct: 1
             }
