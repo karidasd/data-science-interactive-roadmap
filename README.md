@@ -1,8 +1,14 @@
 # Interactive Data Science & ML Roadmap Platform
 
 <p align="center">
-  <img src="assets/logo.png" alt="Interactive Data Science & ML Roadmap Logo" width="220" />
+  <img src="assets/logo.png" alt="Interactive Data Science & ML Roadmap Logo" width="220" /><br><br>
+  <a href="https://karidasd.github.io/data-science-interactive-roadmap/" target="_blank">
+    <img src="https://img.shields.io/badge/Live_Website-Open_Roadmap-blueviolet?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Website" />
+  </a>
 </p>
+
+👉 **[Δείτε την Ιστοσελίδα Live εδώ! (Live Interactive Website)](https://karidasd.github.io/data-science-interactive-roadmap/)**
+
 
 Welcome to the **Interactive Data Science & ML Roadmap**! This repository is a single-page interactive web application designed to guide students through the typical curriculum structure of Data Science and Machine Learning. 
 
